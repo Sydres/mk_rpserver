@@ -177,6 +177,7 @@ $(document).ready(function() {
                 documentsAPI.hide();
                 $(`#documentArmy`).hide("fast");
                 $(`#fbiPassport`).hide("fast");
+                $(`#documents`).hide("fast");
                 $(document).unbind("keydown", documentsAPI.eHandler);
             }
         }
