@@ -38,7 +38,7 @@ let jobstoragebitemcolshape = mp.colshapes.newSphere(-154.730, -1077.751, 21.685
 
 mp.events.add("playerDeath", function playerDeathHandler(player, reason, killer) {
     if (player.job === 7) {
-        /*if (player.jobubildercloth == true) {
+        if (player.jobubildercloth == true) {
             player.utils.info("Вы уволились из стройки!");
             if (player.emoney > 0) {
               player.utils.setMoney(player.money + player.emoney);
@@ -51,7 +51,7 @@ mp.events.add("playerDeath", function playerDeathHandler(player, reason, killer)
             delete player.body.denyUpdateView;
             player.call('createJobBuilderRoom', [false]);
             player.call("createJobBuilderMarkBlip", [ false, false, -154.730, -1077.751, 21.685 ]);
-        }*/
+        }
         stopJobDay(player);
         leaveJob(player);
     }
