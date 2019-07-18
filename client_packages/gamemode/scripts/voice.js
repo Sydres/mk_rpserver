@@ -7,7 +7,7 @@ exports = (menu) => {
     mp.keys.bind(78, true, function() { // N
         if (mp.gui.cursor.visible || mp.chatActive || mp.consoleActive) return;
         if (mute_player) return mp.events.call("nError", "Микрофон заблокирован!");
-        //if (!mute_player && !mp.clientStorage["admin"]) return mp.events.call("nError", "Микрофон временно выключен!");
+        if (!mute_player && !mp.clientStorage["admin"]) return mp.events.call("nError", "Микрофон временно выключен!");
         mp.voiceChat.muted = false;
         menu.execute(`voiceAPI.on()`);
     });
@@ -94,15 +94,15 @@ exports = (menu) => {
             }
         });
     }, 500);
-    /*/
+
           mp.events.add("render", () => {
                 mp.players.forEachInStreamRange((rec) => {
                       if (rec != mp.players.local) drawVoiceSprite(rec);
                 });
-          });*/
+          });
 }
 
-/*function drawVoiceSprite(player) {
+function drawVoiceSprite(player) {
       var headPos = player.getBoneCoords(12844, 0, 0, 0);
       var headPos2d = mp.game.graphics.world3dToScreen2d(headPos.x, headPos.y, headPos.z + 1);
       if (!headPos2d) return;
@@ -113,4 +113,4 @@ exports = (menu) => {
       var spriteColor = getVoiceSpriteColor(sprite);
 	//leaderboard_audio_3
       drawSprite("mpleaderboard", sprite, [scaleSprite, scaleSprite], 0, spriteColor, headPos2d.x, headPos2d.y + 0.038 * scaleSprite);
-}*/
+}
