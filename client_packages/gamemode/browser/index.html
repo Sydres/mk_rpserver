@@ -728,6 +728,19 @@
                     <h3>Добро пожаловать</h3>
                     <h1>Impact</h1>
                     <h2>Role Play</h2>
+                    <h3>Нажмите любую кнопку</h3>
+                <script>
+                function blink(selector) {
+                	$(selector).fadeOut('slow',function() {
+                		$(this).fadeIn('slow',function() {
+                			blink(this);
+                		});
+                	});
+                }
+                $(document).ready(function () {
+                	blink('.blink');
+                });
+                </script>
                 </div>
             </div>
 
