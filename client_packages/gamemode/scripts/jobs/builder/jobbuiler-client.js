@@ -78,7 +78,7 @@ mp.events.add('createJobNeedBuilderMarkBlip', (posx, posy, posz) => {
 	{
     deleteData();
 		JobBuilder.marker = mp.markers.new(1, new mp.Vector3(posx, posy, posz - 1.4), 4, { visible: true, dimension: 0, color: [255, 0, 0, 110] });
-		JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy), { alpha: 255, color: 1 });
+		JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy, posz - 1.4 ), { alpha: 255, color: 1 });
 		JobBuilder.blip.setRoute(true);
 		JobBuilder.blip.setRouteColour(1);
 		JobBuilder.colshape = mp.colshapes.newSphere(posx, posy, posz, 2);
