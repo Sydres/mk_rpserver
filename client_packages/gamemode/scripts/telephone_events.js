@@ -3,7 +3,7 @@ exports = (menu) => {
     mp.events.add('update.player.telephone', (num) => {
       if (!num) return;
       our_number = num;
-      menu.execute(`telephone.setnum('${num}');`)
+      menu.execute(`mp.events.call('telePhone', {num: ${our_number}, event: 'setnum' })`);
     })
 
     mp.events.add('update.telephone.messages', (result) => {
@@ -14,14 +14,11 @@ exports = (menu) => {
     })
 
     function outComingMessage(id, num, text) {
-      menu.execute(`$('.outgoingList').append('<div class="buttonInContent outgoingMessage" id="O${id}"><div class="textButtonInContent">${num}</div></div>')`)
-      menu.execute(`$('.outgoingMessageList').attr('id',O2${id})`)
-      menu.execute(`$("#O${id}").click(() =>{$(".outgoingMessageList #O2${id}").show();$(".outgoingList").hide();$(".settingsOutgoing").hide();$(".messageBy").show();$(".settingsExitFromMessageOutgoing").show();$('.inScreen').prepend('<div class="outgoingMessageList" id="O2${id}"><div class="headerContacts">Исходящее сообщение к ${num}</div><div class="messageBy" style="padding-left: 5px;padding-right: 5px;"><span style="word-wrap: break-word;">${text}</span></div>')});`)
+        menu.execute(`mp.events.call('telePhone', {data: ${JSON.stringify({ id: id, num: num, text: text })}, event: 'outComingMessage' })`);
     }
+
     function inComingMessage(id, num, text) {
-      menu.execute(`$('.incomingList').append('<div class="buttonInContent incomingMessage" id="B${id}"><div class="textButtonInContent">${num}</div></div>')`)
-      menu.execute(`$('.incomingMessageList').attr('id',${id})`)
-      menu.execute(`$("#B${id}").click(() =>{$(".incomingMessageList #${id}").show();$(".incomingList").hide();$(".settingsOutgoing").hide();$(".messageBy").show();$(".settingsExitFromMessage").show();$('.inScreen').prepend('<div class="incomingMessageList" id="${id}"><div class="headerContacts">Входящее сообщение от ${num}</div><div class="messageBy" style="padding-left: 5px;padding-right: 5px;"><span style="word-wrap: break-word;">${text}</span></div>')});`)
+        menu.execute(`mp.events.call('telePhone', {data: ${JSON.stringify({ id: id, num: num, text: text })}, event: 'inComingMessage' })`);
     }
 
     mp.events.add('create.telephone.message', (id, text, num, type) => {
@@ -32,11 +29,7 @@ exports = (menu) => {
     })
 
     mp.events.add("telephone.enable", (enable) => {
-      menu.execute(`telephone.enable(${enable})`);
-    });
-
-    mp.events.add("telephone.enable", (enable) => {
-      menu.execute(`telephone.enable(${enable})`);
+        menu.execute(`mp.events.call('telePhone', {status: ${enable}, event: 'enable' })`);
     });
 
     mp.events.add("telephone.call", (num) => {
@@ -49,26 +42,30 @@ exports = (menu) => {
     mp.events.add("telephone.active", (enable) => {
       if (!our_number) return mp.events.call(`nError`, `Номер телефона не загружен!`);
       mp.enableTelephone = enable;
-      if (our_number && enable) mp.game.graphics.notify("Ваш номер: ~g~" + our_number);
+      if (enable) {
+        if (our_number) mp.game.graphics.notify("Ваш номер: ~g~" + our_number);
+        mp.game.mobile.createMobilePhone(4);
+        mp.game.mobile.setMobilePhoneScale(0);
+      } else mp.game.invoke('0x3BC861DF703E5097');
       mp.gui.cursor.show(enable, enable);
     });
 
     mp.events.add('update.telephone.contacts', (result) => {
         for (let i = 0; i < result.length; i++) {
-            menu.execute(`$('.contactsList').append('<div class="contact" id="BС${result[i].id}"><div class="user">${result[i].name}</div></div>')`)
-            menu.execute(`$("#BС${result[i].id}").click(() =>{$(".options").show();$(".contactsList").hide();$(".settings").hide();$(".settingsAction").show();$("#reciepent").val('${result[i].num}');$("#pass_id").val('${result[i].id}')});`)
+            menu.execute(`mp.events.call('telePhone', {contacts: ${JSON.stringify({ id: result[i].id, num: result[i].num, name: result[i].name })}, event: 'contacts' })`);
         }
     })
 
     mp.events.add('change.telephone.contact', (id, name, num) => {
-      menu.execute(`document.getElementById("BС${id}").innerHTML = '<div class="user">${name}</div>'`)
-      menu.execute(`$("#BC${id} #reciepent").val('${num}')`);
-      //  menu.execute(`$("#BC${id}").unbind();`);
-      //  menu.execute(`$("#BС${id}").click(() =>{$(".options").show();$(".contactsList").hide();$(".settings").hide();$(".settingsAction").show();$("#reciepent").val('${num}');$("#pass_id").val('${id}')});`)
+      menu.execute(`mp.events.call('telePhone', {contact: ${JSON.stringify({ id: id, num: num, name: name })}, event: 'contact' })`);
+    });
+
+    mp.events.add('delete.telephone.contact', (id) => {
+      menu.execute(`mp.events.call('telePhone', {contact: ${id}, event: 'delete' })`);
     });
 
     mp.events.add('create.telephone.contact', (id, name, num) => {
-        createButton(id, name, num);
+        menu.execute(`mp.events.call('telePhone', {contacts: ${JSON.stringify({ id: id, num: num, name: name })}, event: 'contacts' })`);
     })
 
     mp.events.add('selectChangeContact', (id, contactName, contactNumber) => {
@@ -99,9 +96,4 @@ exports = (menu) => {
       if (contactNumber.length > 8) return mp.events.call("nWarning", "Слишком длинный номер!");
       mp.events.callRemote('create.player.contact', contactName, contactNumber)
     })
-
-    function createButton(id, name, num) {
-      menu.execute(`$('.contactsList').append('<div class="contact" id="BС${id}"><div class="user">${name}</div></div>')`)
-      menu.execute(`$("#BС${id}").click(() =>{$(".options").show();$(".contactsList").hide();$(".settings").hide();$(".settingsAction").show();$("#reciepent").val('${num}');$("#pass_id").val('${id}')});`)
-    };
 }
