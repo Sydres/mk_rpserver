@@ -78,9 +78,8 @@ mp.events.add('createJobNeedBuilderMarkBlip', (posx, posy, posz) => {
 	{
     deleteData();
 		JobBuilder.marker = mp.markers.new(1, new mp.Vector3(posx, posy, posz - 1.4), 4, { visible: true, dimension: 0, color: [255, 0, 0, 110] });
-		JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy, posz - 1.4 ), { alpha: 255, color: 1 });
+		JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy), { alpha: 255, color: 1 });
 		JobBuilder.blip.setRoute(true);
-    JobBuilder.blip.rotation = 180;
 		JobBuilder.blip.setRouteColour(1);
 		JobBuilder.colshape = mp.colshapes.newSphere(posx, posy, posz, 2);
 	} catch (err) {
@@ -94,7 +93,7 @@ mp.events.add('createJobBuilderMarkBlip', (type, type2, posx, posy, posz) => {
     deleteData();
 		if (type === true) {
 			JobBuilder.marker = mp.markers.new(1, new mp.Vector3(posx, posy, posz - 1.2), 1, { visible: true, dimension: 0, color: [255, 0, 0, 180] });
-			JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy), { alpha: 255, color: 1 });
+			JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy), { alpha: 255, color: 38});
 		}
 	} catch (err) {
 		mp.game.graphics.notify("~r~" + err);
