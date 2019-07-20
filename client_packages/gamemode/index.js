@@ -54,6 +54,7 @@ mp.events.add('guiReady', () => {
                 require('gamemode/scripts/jobs/taxi/index.js');
                 require('gamemode/scripts/jobs/gopostal/gopostal-client.js');
                 require('gamemode/scripts/jobs/smuggling/index.js');
+                require('gamemode/scripts/jobs/trucker/index.js');
                 require('gamemode/scripts/medicTablet_events.js')(menu);
                 require('gamemode/scripts/fibTablet_events.js')(menu);
                 require('gamemode/scripts/armyTablet_events.js')(menu);
