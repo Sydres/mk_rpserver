@@ -221,7 +221,7 @@
 }
 
 #authenticationApp .block a {
-    color: #3aa33c;
+    color: #673AA3;
     /*font-size: 14px;*/
     font-weight: bold;
     text-align: center;
@@ -269,18 +269,18 @@
 
 #authenticationApp .login input:valid {
     transition: 0.7s;
-    border-bottom: 1px solid #00b716;
+    border-bottom: 1px solid #7100B7;
 }
 
 #authenticationApp .login input:valid>.fast-enter a {
     transition: 0.7s;
-    border-bottom: 1px solid #00b716;
+    border-bottom: 1px solid #7100B7;
 }
 
 #authenticationApp .registration input:valid {
     transition: 0.7s;
     text-align: center;
-    border-bottom: 1px solid #00b716;
+    border-bottom: 1px solid #7100B7;
 }
 
 #authenticationApp .enter-real-info input {
@@ -320,12 +320,12 @@
 }
 
 #authenticationApp .sex-block-active {
-    color: #3aa33c;
+    color: #673AA3;
     font-weight: bold;
 }
 
 #authenticationApp .sex-block-active:hover {
-    color: #3aa33c;
+    color: #673AA3;
 }
 
 #authenticationApp .enter-info {
@@ -345,7 +345,7 @@
 #authenticationApp .button {
     transition: 0.2s;
     position: relative;
-    background: #00b716;
+    background: #7100B7;
     border-radius: 17.5px;
     width: 190px;
     height: 28px;
@@ -362,7 +362,7 @@
 
 #authenticationApp .button:hover {
     transition: 0.2s;
-    background: #007d0f;
+    background: #68007d;
 }
 
 #authenticationApp .button a {
@@ -430,11 +430,11 @@
 }
 
 #authenticationApp input:checked+.slider {
-    background-color: #3aa33c;
+    background-color: #673AA3;
 }
 
 #authenticationApp input:focus+.slider {
-    box-shadow: 0 0 1px #3aa33c;
+    box-shadow: 0 0 1px #673AA3;
 }
 
 #authenticationApp input:checked+.slider:before {
@@ -472,11 +472,11 @@
 }
 
 #authenticationApp .select-block-active {
-    border-bottom: 2px solid #3aa33c;
+    border-bottom: 2px solid #673AA3;
 }
 
 #authenticationApp .select-block-active a {
-    color: #3aa33c;
+    color: #673AA3;
 }
 
 #authenticationApp .recovery, .recovery-result, .google, .pincode, .confirmEmail {
@@ -487,7 +487,7 @@
 
 #authenticationApp .box-header a {
     font-size: 18px;
-    color: #3aa33c;
+    color: #673AA3;
 }
 
 #authenticationApp .recovery input {

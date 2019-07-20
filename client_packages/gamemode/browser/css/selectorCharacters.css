@@ -150,7 +150,7 @@
 }
 
 #selectorCharacters .user-block-info p {
-    color: #00b716;
+    color: #68007d;
     font-size: 1.66667vh;
     font-weight: bold;
     text-transform: uppercase;
@@ -252,13 +252,14 @@
 
 #selectorCharacters .slot-button-green {
     transition: 0.2s;
-    border: 0.18519vh solid #00b716;
+    border: 0.18519vh solid #7100B7;
 }
 
 #selectorCharacters .slot-button-green:hover {
     transition: 0.2s;
-    border: 0.18519vh solid #009d13;
-    background: #009d13;
+    border: 3px solid #fff;
+    background: #68007d;
+    cursor: pointer;
 }
 
 #selectorCharacters .info-block {
@@ -332,7 +333,7 @@
         top: 2vh;
     }
     #selectorCharacters .creation-date,
-    #selectorCharacters .hour-count { 
+    #selectorCharacters .hour-count {
         margin-top: 1vh;
     }
     #selectorCharacters .user-block.donate-slot .slot-free .buttons-list .slot-button .vcicon a {
@@ -348,7 +349,7 @@
         top: 1vh;
     }
     #selectorCharacters .creation-date,
-    #selectorCharacters .hour-count { 
+    #selectorCharacters .hour-count {
         margin-top: 1vh;
     }
     #selectorCharacters .user-block.donate-slot .slot-free .buttons-list .slot-button .vcicon a {
