@@ -6,7 +6,40 @@ module.exports.Init = function() {
     initLoadReceivers();
 }
 
+
+mp.events.add("job.trucker.agree", (player) => {
+    try
+    {
+        if (player.job !== 0 && player.job !== 5) {
+          player.utils.warning("Вы уже где-то работаете!");
+          return;
+        }
+        if (player.job === 5) {
+            if (player.jobubildercloth == true) {
+                player.utils.error("Вы ещё не закончили рабочий день!");
+                return;
+            }
+
+            leaveJob(player);
+        } else {
+            player.utils.success("Вы устроились дальнобойщиком!");
+            player.utils.warning("Теперь переоденьтесь для начала рабочего дня!");
+            player.utils.changeJob(5);
+            player.call('createJobBuilderRoom', [true]);
+            player.setVariable("keydownevariable", true);
+        }
+    } catch (err){
+        console.log(err);
+        return;
+    }
+});
+
+mp.blips.new(477, new mp.Vector3(-775.109, -2632.27, 13.9446), { name: 'Дальнобойщик', scale: 0.7, shortRange: true});
+
 function initTruckerUtils() {
+
+console.log("[JOB] Trucker in Los Santos started!");
+
     mp.trucker = {
         getSkill: (exp) => {
             if (exp < 8) return {

@@ -1,1 +1,1 @@
-require('./trucker.js');
+require('gamemode/scripts/jobs/trucker/trucker.js');

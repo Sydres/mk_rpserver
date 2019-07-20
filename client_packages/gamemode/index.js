@@ -45,6 +45,7 @@ mp.events.add('guiReady', () => {
                 require('gamemode/scripts/closed_doors.js');
                 require('gamemode/scripts/player_weapon.js')(menu);
                 require('gamemode/scripts/jobs/trash/index.js');
+                require('gamemode/scripts/jobs/trucker/index.js');
                 require('gamemode/scripts/jobs/pizza/index.js');
                 require('gamemode/scripts/jobs/waterfront/index.js');
                 require('gamemode/scripts/jobs/builder/index.js');
