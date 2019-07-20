@@ -54,3 +54,6 @@ mp.keys.bind(0x45, false, function () { // E key
     else mp.events.call("choiceMenu.show", "accept_job_trucker", {name: "устроиться Дальнобойщиком?"});
 	}
 });
+
+
+console.log("[JOB] Trucker job stared!");

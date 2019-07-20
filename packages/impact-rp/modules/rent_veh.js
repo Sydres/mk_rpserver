@@ -1,5 +1,5 @@
 const RentInfo = {
-    price: 0,
+    price: 50,
     time: 60000 // 1 минута
 }
 
