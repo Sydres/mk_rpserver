@@ -19,7 +19,8 @@ const HelperInfo = {
     mp.blips.new(280, new mp.Vector3(562.88, -1750.25, 29.28), { alpha: 255, scale: 0.7, color: 3, name: "Помощник", shortRange: true }),
     mp.blips.new(280, new mp.Vector3(1538.44, 3766.79, 34.06), { alpha: 255, scale: 0.7, color: 3, name: "Помощник", shortRange: true }),
     mp.blips.new(280, new mp.Vector3(-169.76, 6439.63, 31.92), { alpha: 255, scale: 0.7, color: 3, name: "Помощник", shortRange: true }),
-    mp.blips.new(446, new mp.Vector3(-338.98, -136.19, 39.01), { alpha: 255, scale: 1, color: 60, name: "Автомастерская", shortRange: true }),
+     mp.blips.new(446, new mp.Vector3(-338.98, -136.19, 39.01), { alpha: 255, scale: 1, color: 60, name: "Автомастерская", shortRange: true }),
+    mp.blips.new(225, new mp.Vector3(-1631.16, -903.19, 39.59), { alpha: 255, scale: 1, color: 58, name: "Авто-ярмарка", shortRange: true }),
   ],
   peds: [
     mp.peds.new(-1382092357, new mp.Vector3(-1028.10, -2738.47, 13.80), 106.0, (streamPed) => { streamPed.setAlpha(50); }, 0),
