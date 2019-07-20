@@ -59,7 +59,7 @@ mp.events.add('create.job.builder.mark', (posx, posy, posz, type) => {
     try {
         deleteData();
         if (type === true) {
-            JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy), {
+            JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy, posz), {
                 alpha: 255,
                 color: 1,
                 name: "Пункт назначения"
@@ -86,7 +86,7 @@ mp.events.add('createJobNeedBuilderMarkBlip', (posx, posy, posz) => {
             dimension: 0,
             color: [255, 0, 0, 110]
         });
-        JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy), {
+        JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy, posz), {
             alpha: 255,
             color: 1
         });
@@ -107,7 +107,7 @@ mp.events.add('createJobBuilderMarkBlip', (type, type2, posx, posy, posz, rotati
                 dimension: 0,
                 color: [255, 0, 0, 180]
             });
-            JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy), {
+            JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy, posz), {
                 alpha: 255,
                 color: 38
             });
