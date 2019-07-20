@@ -105,12 +105,12 @@ mp.events.add('createJobBuilderMarkBlip', (type, type2, posx, posy, posz, rotati
             JobBuilder.marker = mp.markers.new(1, new mp.Vector3(posx, posy, posz - 1.2), 1, {
                 visible: true,
                 dimension: 0,
-                color: [255, 0, 0, 180],
-                rotation: rotation
+                color: [255, 0, 0, 180]
             });
             JobBuilder.blip = mp.blips.new(1, new mp.Vector3(posx, posy), {
                 alpha: 255,
-                color: 38
+                color: 38,
+                rotation: rotation
             });
         }
     } catch (err) {
