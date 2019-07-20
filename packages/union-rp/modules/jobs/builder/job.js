@@ -50,7 +50,7 @@ mp.events.add("playerDeath", function playerDeathHandler(player, reason, killer)
             delete player.jobbuilderfloor;
             delete player.body.denyUpdateView;
             player.call('createJobBuilderRoom', [false]);
-            player.call("createJobBuilderMarkBlip", [ false, false, -154.730, -1077.751, 21.685 ]);
+            player.call("createJobBuilderMarkBlip", [ false, false, -154.730, -1077.751, 21.685 ], 0);
         }
         stopJobDay(player);
         leaveJob(player);
@@ -65,7 +65,7 @@ mp.events.add("playerStartEnterVehicle", function playerStartEnterVehicleHandler
    if (player.jobbuilderfloor > -1 && !player.builder) stopBringingBox(player);
 });
 function stopBringingBox(player) {
-  player.call("createJobBuilderMarkBlip", [ true, false, -154.730, -1077.751, 21.685 ] );
+  player.call("createJobBuilderMarkBlip", [ true, false, -154.730, -1077.751, 21.685 ], 0 );
   player.jobbuilderfloor = -1;
 }
 module.exports.stopBringingBox = stopBringingBox;
@@ -325,7 +325,7 @@ function haveLicense(player, vehicle) {
 function stopJobDay(player) {
   if (player.jobubildercloth === false) return;
   player.jobubildercloth = false;
-  player.call("createJobBuilderMarkBlip", [ false, false, -154.730, -1077.751, 21.685 ]);
+  player.call("createJobBuilderMarkBlip", [ false, false, -154.730, -1077.751, 21.685 ], 0);
   // Возвращаем одежду персонажа
   delete player.body.denyUpdateView;
   player.body.loadItems();
@@ -340,7 +340,7 @@ function changeBuilderClothes(player){
             if (player.vehicle) return;
             player.utils.success("Вы начали рабочий день!");
             player.jobubildercloth = true;
-            player.call("createJobBuilderMarkBlip", [ true, false, -154.730, -1077.751, 21.685 ]);
+            player.call("createJobBuilderMarkBlip", [ true, false, -154.730, -1077.751, 21.685 ], 0);
             player.body.clearItems();
             player.body.denyUpdateView = true;
             if (player.sex === 1) {
@@ -374,7 +374,7 @@ function takeBoxBuilder(player){
           player.utils.takeObject("hei_prop_heist_wooden_box");
           player.jobbuilderfloor = getRandomNumber(0, 8);
           player.notify("Отнесите ящик на ~r~ " + JobBuilder.out_boxes_positions[player.jobbuilderfloor].floor + " ~w~этаж!");
-          player.call("createJobBuilderMarkBlip", [ true, true, JobBuilder.out_boxes_positions[player.jobbuilderfloor].x, JobBuilder.out_boxes_positions[player.jobbuilderfloor].y, JobBuilder.out_boxes_positions[player.jobbuilderfloor].z ]);
+          player.call("createJobBuilderMarkBlip", [ true, true, JobBuilder.out_boxes_positions[player.jobbuilderfloor].x, JobBuilder.out_boxes_positions[player.jobbuilderfloor].y, JobBuilder.out_boxes_positions[player.jobbuilderfloor].z, 180 ]);
         } else {
             player.utils.error("Вы уже взяли ящик со склада!");
         }
@@ -390,7 +390,7 @@ function putBoxBuilder(player){
         player.utils.putObject();
         let money = Math.round(mp.economy["build_salary"].value * JobBuilder.out_boxes_positions[player.jobbuilderfloor].xs);
         player.utils.setMoney(player.money + money);
-        player.call("createJobBuilderMarkBlip", [ true, false, -154.730, -1077.751, 21.685 ] );
+        player.call("createJobBuilderMarkBlip", [ true, false, -154.730, -1077.751, 21.685 ], 0 );
         player.utils.setJobSkills(7, player.jobSkills[7 - 1] + 1);
         if (player.jobSkills[7 - 1] === 50) player.utils.warning("Вам открыта 2 ступень работы!");
         player.utils.success(`Заработано: ${money}$`);
