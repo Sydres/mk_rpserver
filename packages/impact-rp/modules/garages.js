@@ -42,12 +42,12 @@ function initGarageUtils(garage) {
 }
 
 function createExitMarker(pos) {
-    /*var exitMarker = mp.markers.new(1, pos, 1,
+    var exitMarker = mp.markers.new(1, pos, 1,
     	{
     		color: [0,187,255,70],
     		visible: false,
     		dimension: -1
-    	});*/
+    	});
     //для отловки события входа
     var colshape = mp.colshapes.newSphere(pos["x"], pos["y"], pos["z"], 2);
     colshape.dimension = -1;
