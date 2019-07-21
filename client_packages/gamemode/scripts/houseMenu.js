@@ -2,13 +2,13 @@ exports = (menu) => {
 
     mp.keys.bind(0x45, true, function() { // E key
         if (isFlood()) return;
-        //if (mp.chatActive || mp.consoleActive || mp.inventoryActive || mp.tradeActive || mp.playerMenuActive) return;
+        if (mp.chatActive || mp.consoleActive || mp.inventoryActive || mp.tradeActive || mp.playerMenuActive) return;
         mp.events.callRemote("houseHandler");
     });
 
     mp.keys.bind(0x48, true, function() { // E key
         if (isFlood()) return;
-        //if (mp.chatActive || mp.consoleActive || mp.inventoryActive || mp.tradeActive || mp.playerMenuActive) return;
+        if (mp.chatActive || mp.consoleActive || mp.inventoryActive || mp.tradeActive || mp.playerMenuActive) return;
         mp.events.callRemote("houseMenuHandler");
     });
 
@@ -17,7 +17,7 @@ exports = (menu) => {
     });
 
     mp.events.add("houseMenu.show", (params) => {
-        //var values = [house.sqlId, house.class, house.interior, house.ownerName, house.garage, house.closed, house.price, house.position];
+        var values = [house.sqlId, house.class, house.interior, house.ownerName, house.garage, house.closed, house.price, house.position];
         JSON.stringify(params);
 
         var houseOwner = "";
@@ -33,7 +33,7 @@ exports = (menu) => {
         let getStreet = mp.game.pathfind.getStreetNameAtCoord(params[7].x, params[7].y, params[7].z, 0, 0);
         let streatName = mp.game.ui.getStreetNameFromHashKey(getStreet["streetName"]);
 
-        //menu.execute(`houseMenu.__vue__.showMenu(0, "", 0, 0, 0, 0, 12);`); //
+        menu.execute(`houseMenu.__vue__.showMenu(0, "", 0, 0, 0, 0, 12);`); //
         menu.execute(`houseMenu.__vue__.showMenu(${params[0]},${params[2]},"${houseOwner}","${streatName}",${params[1]},${params[5]},1,"${haveGarage}","${garagePlace}",${params[6]},${params[8]},${params[9]});`);
         setCursor(true);
     });
