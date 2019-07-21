@@ -52,6 +52,12 @@ global.initPlayerTelephone = function(player) {
             let taxiOpen = require("./jobs/taxi/taxi.js");
             taxiOpen.recallTaxi(player);
             break;
+
+        case 3:
+            let policeOpen = require("./factions/police/police.js");
+            policeOpen.recallPolice(player);
+            break;
+
         default: player.utils.error("Абонент временно недоступен!");
       }
     } else {
