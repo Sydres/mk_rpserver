@@ -19,7 +19,7 @@ mp.events.add('guiReady', () => {
                 require('gamemode/scripts/account_events.js')(menu);
                 require('gamemode/scripts/character_events.js')(menu);
                 require('gamemode/scripts/selectMenu_events.js')(menu);
-                require('gamemode/scripts/interactionMenu_events.js')(menu);
+                require('gamemode/scripts/interactionMenu_events.js')(menu); 
                 require('gamemode/scripts/infoTable_events.js')(menu);
                 require('gamemode/scripts/modal_events.js')(menu);
                 require('gamemode/scripts/prompt_events.js')(menu);
