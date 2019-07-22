@@ -14,8 +14,13 @@ module.exports = {
 
         var hospital = mp.factions.getBySqlId(5);
         player.hospital = true;
-        player.spawnPos = hospital.position;
-        player.spawnPos.h = hospital.h;
+
+        //player.spawnPos = hospital.position;
+        //player.spawnPos.h = hospital.h;
+
+        //Спавн в лікарні
+        player.spawnPos = [325, -1413, 32.5];
+        player.spawnPos.h = 138;
 
         var timerId = setTimeout(() => {
             try {

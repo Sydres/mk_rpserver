@@ -4,21 +4,21 @@ mp.events.add("take.police.order", (player, name) => {
         if (getPoliceOrder(name, "client") === undefined) return;
 
         if (getPoliceOrder(player.name, "officer") !== undefined) {
-            player.notifyWithPicture('Оператор', 'Downtown Cab Co.', 'Сначала завершите предыдущий заказ.', 'CHAR_police');
+            player.notifyWithPicture('Оператор', 'Downtown Cab Co.', 'Сначала завершите предыдущий заказ.', 'CHAR_CALL911');
             return;
         }
 
         if (target === undefined || getPoliceOrder(name, "client").officer_name !== undefined) {
             deleteOrderForofficer(name);
-            player.notifyWithPicture('Оператор', 'Downtown Cab Co.', 'Данный заказ невозможно принять.', 'CHAR_police');
+            player.notifyWithPicture('Оператор', 'Downtown Cab Co.', 'Данный заказ невозможно принять.', 'CHAR_CALL911');
             return;
         }
 
 
-        getPoliceOrder(name, "client").officer_name = player.name;
+        getPoliceCall(name, "client").officer_name = player.name;
         deleteOrderForofficer(target.name);
-        player.notifyWithPicture('Оператор', 'Downtown Cab Co.', 'Вы приняли вызов ~y~' + name, 'CHAR_police');
-        target.notifyWithPicture('Оператор', 'Downtown Cab Co.', '~y~' + player.name + ' ~w~принял ваш вызов.', 'CHAR_police');
+        player.notifyWithPicture('Оператор', 'Downtown Cab Co.', 'Вы приняли вызов ~y~' + name, 'CHAR_CALL911');
+        target.notifyWithPicture('Оператор', 'Downtown Cab Co.', '~y~' + player.name + ' ~w~принял ваш вызов.', 'CHAR_CALL911');
         player.call("accept.police.order", [target.position]);
     } catch (err) {
         console.log(err);
@@ -26,11 +26,17 @@ mp.events.add("take.police.order", (player, name) => {
     }
 });
 function recallPolice(player) {
-  if (getPoliceCall(player.name, "client") !== undefined) cancelPolice (player, true);{
-  player.notifyWithPicture('Оператор', 'Downtown Cab Co.', 'Вы ~y~вызвали ~w~полицию, ожидайте!', 'CHAR_police');
-  }
+  if (mp.factions.isPoliceFaction(player.faction)){
+    player.notifyWithPicture('Диспетчер', 'LSPD', 'Вас вызвали сосать член', 'CHAR_CALL911');
+    //cancelPolice(player, true);
+  //}
+//  else{
+    //callPolice(player);
+  //}
 
-  else callPolice(player);
+
+
+}
 }
 
 function getPlayerByName(name) {
@@ -62,3 +68,4 @@ function deleteOrderForofficer(name) {
         return;
     }
 }
+module.exports.recallPolice = recallPolice;
