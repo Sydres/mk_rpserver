@@ -69,21 +69,21 @@
 }
 
 @font-face {
-    font-family: 'OpenSans';
+    font-family: 'Gilroy';
     font-style: normal;
     font-weight: normal;
     src: local('OpenSans-Regular'), url('../fonts/OpenSans/OpenSans-Regular.woff') format('woff');
 }
 
 @font-face {
-    font-family: 'OpenSans';
+    font-family: 'Gilroy';
     font-style: normal;
     font-weight: 600;
     src: local('OpenSans-Semibold'), url('../fonts/OpenSans/OpenSans-Semibold.woff') format('woff');
 }
 
 @font-face {
-    font-family: 'OpenSans';
+    font-family: 'Gilroy';
     font-style: normal;
     font-weight: bold;
     src: local('OpenSans-Bold'), url('../fonts/OpenSans/OpenSans-Bold.woff') format('woff');
@@ -101,4 +101,16 @@
     font-style: normal;
     font-weight: normal;
     src: local('Chalet-LondonNineteenSixty'), url('../fonts/Chalet/Chalet-ParisNineteenSixty.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(../fonts/Gilroy/Gilroy-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Gilroy'), url('../fonts/Gilroy/Gilroy-Regular.ttf') format('opentype');
 }
