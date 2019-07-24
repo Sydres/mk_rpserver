@@ -5,7 +5,7 @@ module.exports = {
 }
 
 function createDrivingSchoolMarker() {
-    var pos = new mp.Vector3(-909.4, -2041.5, 8.9);
+    var pos = new mp.Vector3(-925.5, -2037, 8.40);
     var marker = mp.markers.new(1, pos, 1, {
         color: [187, 255, 0, 70],
         visible: false
