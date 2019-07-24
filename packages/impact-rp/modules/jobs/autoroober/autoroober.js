@@ -1,16 +1,7 @@
-﻿mp.events.add('playerJoin', player => {
-    try
-    {
-        player.skill = 0;
-    } catch (err){
-        console.log(err);
-        return;
-    }
-});
-
+﻿
 // Вся система готова, playerJoin удаляешь, и подставляешь свои деньги и скилл.
 
-// mp.blips.new(669, new mp.Vector3(158.976, -3082.372, 6.014), { name: 'Автоугон', color: 1, shortRange: true}); // Блип на карте
+mp.blips.new(669, new mp.Vector3(158.976, -3082.372, 6.014), { name: 'Автоугон', color: 1, shortRange: true}); // Блип на карте
 let rooberColShape = mp.colshapes.newSphere(158.976, -3082.372, 6.014, 1.5); // Колшейп для взаимодействия с NPC
 
 const rooberinfo = {

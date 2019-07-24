@@ -15,11 +15,13 @@ mp.events.add('guiReady', () => {
                 // Init events.
                 require('gamemode/scripts/events.js')(menu);
                 require('gamemode/scripts/notifs.js');
+                require('gamemode/scripts/player_location.js');
+                require('gamemode/scripts/passenger.js');
                 require('gamemode/scripts/browser.js')(menu);
                 require('gamemode/scripts/account_events.js')(menu);
                 require('gamemode/scripts/character_events.js')(menu);
                 require('gamemode/scripts/selectMenu_events.js')(menu);
-                require('gamemode/scripts/interactionMenu_events.js')(menu); 
+                require('gamemode/scripts/interactionMenu_events.js')(menu);
                 require('gamemode/scripts/infoTable_events.js')(menu);
                 require('gamemode/scripts/modal_events.js')(menu);
                 require('gamemode/scripts/prompt_events.js')(menu);
