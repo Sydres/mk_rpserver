@@ -5,7 +5,7 @@ module.exports = {
 }
 
 function createDrivingSchoolMarker() {
-    var pos = new mp.Vector3(-914.55, -2038.96, 8.4);
+    var pos = new mp.Vector3(-909.4, -2041.5, 8.9);
     var marker = mp.markers.new(1, pos, 1, {
         color: [187, 255, 0, 70],
         visible: false
@@ -13,7 +13,7 @@ function createDrivingSchoolMarker() {
 
     var blip = mp.blips.new(545, pos, {
         color: 0,
-        name: "Driving School",
+        name: "Автошкола",
         shortRange: 10,
         scale: 0.7
     });
