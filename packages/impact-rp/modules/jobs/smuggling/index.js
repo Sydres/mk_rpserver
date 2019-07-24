@@ -11,9 +11,9 @@ const vehiclesData = [
 ];
 
 for (let i = 0; i < vehiclesData.length; i++) {
-	mp.blips.new(84, vehiclesData[i].position, {
+	mp.blips.new(140, vehiclesData[i].position, {
 	    name: 'Дилер',
-	    color: 1,
+	    color: 52,
 			scale: 0.7,
 	    shortRange: true
 	});
