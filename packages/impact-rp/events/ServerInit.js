@@ -12,6 +12,7 @@ module.exports = {
             require('../modules/garages.js').Init();
             require('../modules/timers.js').InitPayDay();
             require('../modules/bizes.js').Init();
+            require('../modules/local-chat/index.js');
             require('../modules/inventory.js').Init();
             require(`../modules/achievements.js`).Init();
             require('../modules/factions.js').Init();
