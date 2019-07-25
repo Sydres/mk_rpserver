@@ -4,10 +4,10 @@ module.exports = {
     Handle: null,
     Connect: function(callback) {
         this.Handle = mysql.createPool({
-            host			:	"localhost",
-            user			: 	"root",
-            password		: 	"",
-            database		:	"bkrp",
+            host			:	"mysql-mariadb14-104.zap-hosting.com",
+            user			: 	"zap433884-2",
+            password		: 	"igTWZ2p4642pw5N4  ",
+            database		:	"zap433884-2",
             debug: false
         });
         callback();
