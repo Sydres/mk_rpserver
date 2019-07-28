@@ -1,0 +1,197 @@
+Starting RAGE Multiplayer server...
+
+[=========================================================]
+
+        MaxPlayers:             100
+        Sync rate:              40
+        Name:                   Impact RP
+        Gamemode:               roleplay
+        Streaming distance:     500
+        Announcement:           enabled
+        Voice chat:             disabled
+        Address:                127.0.0.1:3305
+        Connection limits:      disabled
+        Encryption:             disabled
+        NodeJS:                 enabled
+        C#:                     disabled
+
+[=========================================================]
+
+
+[N] Starting network... - OK: (IPv4-only) at 127.0.0.1:3305
+(node:26546) ExperimentalWarning: The ESM module loader is experimental.
+[M] Announcing into master server...
+Loading packages
+        "impact-rp" loaded
+[M] Connected to master list.
+Запуск сервера...
+Сервер запущен!
+[P] Plugin bridge.so loaded!
+Started HTTP server at 3306 port.
+Команды консоли загружены: 217 из 267 шт.
+Переменные экономики загружены: 77 шт.
+[JOB] Trash in Los Santos stared!
+[CarRoober] CarRoober in Los Santos started!
+[JOB] Taxi in Los Santos started!
+Система логов загружена
+[JOB] Trucker in Los Santos started!
+Дома загружены: 684 шт.
+Достижения загружены: 75 шт.
+Организации загружены: 20 шт.
+Авто загружены: 658 шт.
+Гаражи загружены: 3 шт.
+Интерьеры загружены: 13 шт.
+Предметы инвентаря загружены: 63 шт.
+bracelets loaded: 23
+ears loaded: 55
+feets loaded: 389
+glasses loaded: 51
+hats loaded: 170
+legs loaded: 177
+masks loaded: 265
+ties loaded: 158
+top loaded: 472
+watches loaded: 49
+Начало загрузок парковок 1 шт.
+[[]]
+Донат лист загружен, количество: 10
+Автосалоны загружены: 1 шт.
+Машины автосалона загружены: 165 шт.
+Цвета автосалона загружены: 160 шт.
+Работы загружены: 10 шт.
+ТП-Маркеры загружены: 13 шт.
+Педы загружены: 108 шт.
+Фермы загружены: 2 шт.
+Поля фермы загружены: 4 шт.
+Катсцены загружены: 3 шт.
+Загружено спавнов: 4 шт.
+Whitelist не загружен, Error: ER_NO_SUCH_TABLE: Table 'zap433884-2.whitelist' doesn't exist
+Загружено 4 зелёных зон
+Ранги загружены: 235 шт.
+Парковочные места для парковки №2 загружены: 0 шт.
+[Номера] Загружено 13 специальных номеров
+[Номера] Загружено 10000 свободных номеров
+playerBrowserReady: ITBoom
+Bohdan Kulinchenko заправил авто с ID: 214 на 70 л.
+[N] 194.183.179.230:51593 has been disconnected.
+[N] 176.50.151.76:57729 has been disconnected.
+playerBrowserReady: WeirdNewbie
+{ Error: Invalid login: 534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbvz
+534-5.7.14 AAAIfr1UKeew5oMcfOyP0QLDvjxbKZ4DK2BxGI4GqyVgdp8RBUnsMEfwblUw6BACjek7ld
+534-5.7.14 SUcxrXLqeQdol5f8rVK2khuB7lZq2_Tj1S8svMfg6aFg3M8VVYlu8hiDPIfdmd> Please
+534-5.7.14 log in via your web browser and then try again.
+534-5.7.14  Learn more at
+534 5.7.14  https://support.google.com/mail/answer/78754 a6sm39551187wmj.15 - gsmtp
+    at SMTPConnection._formatError (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:605:19)
+    at SMTPConnection._actionAUTHComplete (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:1340:34)
+    at SMTPConnection._responseActions.push.str (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:378:26)
+    at SMTPConnection._processResponse (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:764:20)
+    at SMTPConnection._onData (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:570:14)
+    at TLSSocket._socket.on.chunk (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:522:47)
+    at TLSSocket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at TLSSocket.Readable.push (_stream_readable.js:219:10)
+  code: [32m'EAUTH'[39m,
+  response:
+   [32m'534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbvz\n534-5.7.14 AAAIfr1UKeew5oMcfOyP0QLDvjxbKZ4DK2BxGI4GqyVgdp8RBUnsMEfwblUw6BACjek7ld\n534-5.7.14 SUcxrXLqeQdol5f8rVK2khuB7lZq2_Tj1S8svMfg6aFg3M8VVYlu8hiDPIfdmd> Please\n534-5.7.14 log in via your web browser and then try again.\n534-5.7.14  Learn more at\n534 5.7.14  https://support.google.com/mail/answer/78754 a6sm39551187wmj.15 - gsmtp'[39m,
+  responseCode: [33m534[39m,
+  command: [32m'AUTH PLAIN'[39m }
+[N] 176.50.151.76:52110 has been disconnected.
+playerBrowserReady: WeirdNewbie
+[N] 176.50.151.76:64246 has been disconnected.
+playerBrowserReady: WeirdNewbie
+ReferenceError: leaveJob is not defined
+    at Object.mp.events.add [as self] (/home/zap433884/g119549/gta5-ragemp/packages/impact-rp/modules/jobs/trucker/trucker.js:23:13)
+    at Object.fire (<anonymous>:721:8)
+    at eval (eval at add (unknown source), <anonymous>:3:11)
+ReferenceError: leaveJob is not defined
+    at Object.mp.events.add [as self] (/home/zap433884/g119549/gta5-ragemp/packages/impact-rp/modules/jobs/trucker/trucker.js:23:13)
+    at Object.fire (<anonymous>:721:8)
+    at eval (eval at add (unknown source), <anonymous>:3:11)
+ReferenceError: leaveJob is not defined
+    at Object.mp.events.add [as self] (/home/zap433884/g119549/gta5-ragemp/packages/impact-rp/modules/jobs/trucker/trucker.js:23:13)
+    at Object.fire (<anonymous>:721:8)
+    at eval (eval at add (unknown source), <anonymous>:3:11)
+ReferenceError: leaveJob is not defined
+    at Object.mp.events.add [as self] (/home/zap433884/g119549/gta5-ragemp/packages/impact-rp/modules/jobs/trucker/trucker.js:23:13)
+    at Object.fire (<anonymous>:721:8)
+    at eval (eval at add (unknown source), <anonymous>:3:11)
+ReferenceError: leaveJob is not defined
+    at Object.mp.events.add [as self] (/home/zap433884/g119549/gta5-ragemp/packages/impact-rp/modules/jobs/trucker/trucker.js:23:13)
+    at Object.fire (<anonymous>:721:8)
+    at eval (eval at add (unknown source), <anonymous>:3:11)
+ReferenceError: leaveJob is not defined
+    at Object.mp.events.add [as self] (/home/zap433884/g119549/gta5-ragemp/packages/impact-rp/modules/jobs/trucker/trucker.js:23:13)
+    at Object.fire (<anonymous>:721:8)
+    at eval (eval at add (unknown source), <anonymous>:3:11)
+ReferenceError: leaveJob is not defined
+    at Object.mp.events.add [as self] (/home/zap433884/g119549/gta5-ragemp/packages/impact-rp/modules/jobs/trucker/trucker.js:23:13)
+    at Object.fire (<anonymous>:721:8)
+    at eval (eval at add (unknown source), <anonymous>:3:11)
+ReferenceError: leaveJob is not defined
+    at Object.mp.events.add [as self] (/home/zap433884/g119549/gta5-ragemp/packages/impact-rp/modules/jobs/trucker/trucker.js:23:13)
+    at Object.fire (<anonymous>:721:8)
+    at eval (eval at add (unknown source), <anonymous>:3:11)
+[N] 176.50.151.76:55445 has been disconnected.
+[N] 95.37.6.185:51654 has been disconnected.
+[N] 176.50.151.76:63984 has been disconnected.
+[N] 195.58.249.147:64988 has been disconnected.
+playerBrowserReady: Psiho
+{ Error: Invalid login: 534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbuH
+534-5.7.14 vzMOeKLkKRe_l_1_F1tiIQuCUwg1y36du3znJC2PrfeiuDyrjXU6_brpIM1tLyKIA5HWnp
+534-5.7.14 h2bHL6Y3e8CFMpE8SKco5kINI14nh1f3SrYzMUYrQQfndAIHMKJVivrOHUPEaf> Please
+534-5.7.14 log in via your web browser and then try again.
+534-5.7.14  Learn more at
+534 5.7.14  https://support.google.com/mail/answer/78754 u18sm44067065wmd.19 - gsmtp
+    at SMTPConnection._formatError (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:605:19)
+    at SMTPConnection._actionAUTHComplete (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:1340:34)
+    at SMTPConnection._responseActions.push.str (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:378:26)
+    at SMTPConnection._processResponse (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:764:20)
+    at SMTPConnection._onData (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:570:14)
+    at TLSSocket._socket.on.chunk (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:522:47)
+    at TLSSocket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at TLSSocket.Readable.push (_stream_readable.js:219:10)
+  code: [32m'EAUTH'[39m,
+  response:
+   [32m'534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbuH\n534-5.7.14 vzMOeKLkKRe_l_1_F1tiIQuCUwg1y36du3znJC2PrfeiuDyrjXU6_brpIM1tLyKIA5HWnp\n534-5.7.14 h2bHL6Y3e8CFMpE8SKco5kINI14nh1f3SrYzMUYrQQfndAIHMKJVivrOHUPEaf> Please\n534-5.7.14 log in via your web browser and then try again.\n534-5.7.14  Learn more at\n534 5.7.14  https://support.google.com/mail/answer/78754 u18sm44067065wmd.19 - gsmtp'[39m,
+  responseCode: [33m534[39m,
+  command: [32m'AUTH PLAIN'[39m }
+a
+[]
+[]
+[N] 195.58.249.147:61261 has been disconnected.
+playerBrowserReady: WeirdNewbie
+[N] 176.50.151.76:63786 has been disconnected.
+[N] 109.61.248.162:51795 has been disconnected.
+playerBrowserReady: Alexej
+{ Error: Invalid login: 534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbv2
+534-5.7.14 sVwDPgYN7jPc7WlsrLZ1ijjnXCpInDi74Xyrjl4M3X9JB9yKLS_kBoyNEBw3IVbZJTUYzS
+534-5.7.14 QYPB8d7SFTLiBTM50-lP-lSg8a6jYZtPm-sF8uTlg2v3ZhaSt3tleyfPhrC4pJ> Please
+534-5.7.14 log in via your web browser and then try again.
+534-5.7.14  Learn more at
+534 5.7.14  https://support.google.com/mail/answer/78754 n1sm41979792wrx.39 - gsmtp
+    at SMTPConnection._formatError (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:605:19)
+    at SMTPConnection._actionAUTHComplete (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:1340:34)
+    at SMTPConnection._responseActions.push.str (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:378:26)
+    at SMTPConnection._processResponse (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:764:20)
+    at SMTPConnection._onData (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:570:14)
+    at TLSSocket._socket.on.chunk (/home/zap433884/g119549/gta5-ragemp/node_modules/nodemailer/lib/smtp-connection/index.js:522:47)
+    at TLSSocket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at TLSSocket.Readable.push (_stream_readable.js:219:10)
+  code: [32m'EAUTH'[39m,
+  response:
+   [32m'534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbv2\n534-5.7.14 sVwDPgYN7jPc7WlsrLZ1ijjnXCpInDi74Xyrjl4M3X9JB9yKLS_kBoyNEBw3IVbZJTUYzS\n534-5.7.14 QYPB8d7SFTLiBTM50-lP-lSg8a6jYZtPm-sF8uTlg2v3ZhaSt3tleyfPhrC4pJ> Please\n534-5.7.14 log in via your web browser and then try again.\n534-5.7.14  Learn more at\n534 5.7.14  https://support.google.com/mail/answer/78754 n1sm41979792wrx.39 - gsmtp'[39m,
+  responseCode: [33m534[39m,
+  command: [32m'AUTH PLAIN'[39m }
+[N] 95.37.6.185:51398 has been disconnected.
+playerBrowserReady: ITBoom
+[N] 194.183.179.230:50581 has been disconnected.
+playerBrowserReady: Bohdan Kulinchenko
+Bohdan Kulinchenko заправил авто с ID: 214 на 70 л.
+/home/zap433884/g119549/gta5-ragemp/packages/impact-rp/events/VehicleEvents.js:42: TypeError: Cannot read property 'utils' of undefined
+        player.vehicle.utils.addMileage(value);
