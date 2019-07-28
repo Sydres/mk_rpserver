@@ -6,7 +6,7 @@ module.exports = {
         this.Handle = mysql.createPool({
             host			:	"mysql-mariadb14-104.zap-hosting.com",
             user			: 	"zap433884-2",
-            password		: 	"igTWZ2p4642pw5N4  ",
+            password		: 	"igTWZ2p4642pw5N4",
             database		:	"zap433884-2",
             debug: false
         });
