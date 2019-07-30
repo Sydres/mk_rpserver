@@ -22,7 +22,11 @@ exports = (menu) => {
     mp.events.add("playerEnterCheckpoint", (player, checkpoint) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         text: "Нажмите <span>Alt</span>, чтобы вызвать курсор."
+=======
+        text: "Нажмите <span>2</span>, чтобы завести двигатель автомобиля."
+>>>>>>> 3378432385d7ccfdfe21435585c4f442dbe827f5
 =======
         text: "Нажмите <span>2</span>, чтобы завести двигатель автомобиля."
 >>>>>>> 3378432385d7ccfdfe21435585c4f442dbe827f5
