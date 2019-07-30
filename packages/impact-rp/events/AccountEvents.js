@@ -83,8 +83,8 @@ module.exports = {
         var confirmEmail = (data.emailCode) ? 1 : 0;
 
         //debug(`regAccount: step A`);
-        
-        
+
+
 
         DB.Handle.query(`SELECT login,email,socialClub FROM accounts WHERE login=? OR socialClub=? OR (email=? AND confirmEmail=?)`, [data.login, player.socialClub, data.email, 1], (e, result) => {
             //debug(`regAccount: step B ${result}`);
@@ -100,7 +100,7 @@ module.exports = {
                 }
             } else {
                 if (data.emailCode == -1) return player.call("showConfirmCodeModal");
-                
+
                 /*проверяем есть ли промо код*/
                 var promoId = 0;
                 var rewardProm = 0;
@@ -122,14 +122,14 @@ module.exports = {
 
                         player.accountRegistrated = true;
                         player.call("regAccountSuccess");
-                        
+
                         var configPromoData = {
                                     "lvl2":false,
                                     "lvl3":false,
                                     "lvl5":false,
                                     "lvl10":false
                         };
-                        
+
                         /*заносим данные по промокоду*/
                         if(promoId!==0){
                             var promoVals = [promoId,result.insertId,JSON.stringify(configPromoData)];
@@ -137,7 +137,7 @@ module.exports = {
                             DB.Handle.query(`UPDATE promocodes SET reward_sum=reward_sum+? WHERE id=?`,[rewardProm,promoId], () => {});
                         }
                         /* работа с промокодами на этапе регистрации закончилась */
-                        
+
                         if (data.emailCode) player.utils.success(`Email подтвержден!`);
                     });
             }
@@ -248,7 +248,7 @@ module.exports = {
                     achievements_slot: (result[0].achievements_slot == 0) ? false : true,
                     donate_slot: (result[0].donate_slot == 0) ? false : true,
                 };
-                
+
                 if(result[0].promocode){
                     //console.log("chek promocode account");
                     DB.Handle.query(`SELECT * FROM promocodes WHERE code=?`,[result[0].promocode], (e, resultCode) => {
@@ -263,6 +263,7 @@ module.exports = {
                 initPlayerAchievements(player);
                 initLocalVars(player);
                 player.utils.success(`Здравствуйте, ${result[0].login}!`);
+                player.utils.warning(`Для вызова курсора нажмите | ALT |`);
                 player.utils.initChoiceCharacter();
 
             });
