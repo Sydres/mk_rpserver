@@ -699,7 +699,17 @@ module.exports = {
     },
 
     "police.callTeamHelp": (player) => {
-        //debug(`police.callTeamHelp: ${player.name}`)
+      mp.players.forEach((rec) => {
+          if (mp.factions.isPoliceFaction(rec.faction)) {
+              rec.call(`tablet.police.callTeamHelp`, [{
+                  id: player.id,
+                  name: player.name,
+                  pos: player.position
+              }]);
+          }
+      });
+      player.policeCallTime = new Date().getTime();
+      player.utils.success(`Вызов отправлен!`);
     },
 
     "police.callHospitalHelp": (player) => {
