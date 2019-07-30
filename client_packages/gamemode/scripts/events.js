@@ -19,6 +19,12 @@ exports = (menu) => {
         mp.game.ui.setNewWaypoint(x, y);
     });
 
+    mp.events.add("playerEnterCheckpoint", (player, checkpoint) => {
+        text: "Нажмите <span>2</span>, чтобы завести двигатель автомобиля."
+    });
+
+
+
     /*mp.events.add("checkpoint.create", (routep, direction) => {
         if (mp.currentCheckpoint)
             mp.currentCheckpoint.destroy();
