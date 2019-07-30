@@ -221,6 +221,7 @@ exports = (menu) => {
         mp.events.callRemote("authCharacter", characterIndex);
         mp.events.call("finishMoveCam");
         mp.events.call("setFreeze", false);
+        promptAPI.showByName("alt_cursor"); 
     });
 
     mp.events.add("initNewCharacter", (sex, openSelectMenu = true) => {

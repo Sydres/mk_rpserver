@@ -22,7 +22,7 @@ module.exports = {
         DB.Handle.query(`UPDATE characters SET spawn = ? WHERE id = ?`,
             [spawnPoint, player.sqlId]);
         player.call(`playerMenu.setSpawn`, [player.spawnPoint, 'server']);
-    }, 
+    },
 
     "setHouseId": (player, houseId) => {
         player.houseId = houseId;
