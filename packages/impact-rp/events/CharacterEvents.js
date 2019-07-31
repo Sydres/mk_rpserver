@@ -316,6 +316,8 @@ module.exports = {
             ping: player.ping
         };
 
+        player.call("prompt.showByName", ["alt_cursor"]);
+
         if (player.warntime > 0) {
             let now = new Date().getTime() / 1000;
             let diff = now - player.warntime;
@@ -489,7 +491,7 @@ function initPlayerUtils(player) {
         var pos = getPlayerSpawnPos(player);
         player.spawn(pos);
 
-        player.call("prompt.showByName", ["alt_cursor"]);
+
 
         player.heading = pos.h;
         player.health = health;
