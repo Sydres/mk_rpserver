@@ -1,7 +1,7 @@
 
 {
 	"maxplayers" : 100,
-	"name" : "Impact RP",
+	"name" : "[alpha][text] Impact RP",
 	"gamemode" : "roleplay",
 	"stream-distance" : 500.0,
 	"announce" : true,

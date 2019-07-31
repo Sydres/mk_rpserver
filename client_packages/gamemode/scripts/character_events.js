@@ -221,6 +221,8 @@ exports = (menu) => {
         mp.events.callRemote("authCharacter", characterIndex);
         mp.events.call("finishMoveCam");
         mp.events.call("setFreeze", false);
+
+
     });
 
     mp.events.add("initNewCharacter", (sex, openSelectMenu = true) => {

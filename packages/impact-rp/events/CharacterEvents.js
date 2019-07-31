@@ -22,7 +22,7 @@ module.exports = {
         DB.Handle.query(`UPDATE characters SET spawn = ? WHERE id = ?`,
             [spawnPoint, player.sqlId]);
         player.call(`playerMenu.setSpawn`, [player.spawnPoint, 'server']);
-    }, 
+    },
 
     "setHouseId": (player, houseId) => {
         player.houseId = houseId;
@@ -240,6 +240,8 @@ module.exports = {
             wanted: player.wanted
         }]);
         player.call("authCharacter.success");
+
+
 
         player.authTime = new Date().getTime();
 
@@ -486,6 +488,9 @@ function initPlayerUtils(player) {
         if (player.arrestTime > 0 && player.demorgan < 1) return player.utils.doArrest(player.arrestCell, player.arrestTime, true);
         var pos = getPlayerSpawnPos(player);
         player.spawn(pos);
+
+        player.call("prompt.showByName", ["alt_cursor"]);
+
         player.heading = pos.h;
         player.health = health;
         player.dimension = 0;
