@@ -56,7 +56,7 @@ function regAccountHandler(emailCode) {
         promocode: $(`#authenticationApp .registration .promocode`).val().trim(),
         //sex: authenticationApp.$data.cursex,
     };
-    
+
     var r = /^[0-9a-zA-Z]{0,20}$/i;
     if (!r.test(data.promocode)) {
         return lightTextFieldError("#authenticationApp .registration .promocode", "Некорректный промокод!");

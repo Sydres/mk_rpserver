@@ -241,6 +241,8 @@ module.exports = {
         }]);
         player.call("authCharacter.success");
 
+
+
         player.authTime = new Date().getTime();
 
         /*//начисление награды за промокоды
@@ -486,6 +488,9 @@ function initPlayerUtils(player) {
         if (player.arrestTime > 0 && player.demorgan < 1) return player.utils.doArrest(player.arrestCell, player.arrestTime, true);
         var pos = getPlayerSpawnPos(player);
         player.spawn(pos);
+
+        player.call("prompt.showByName", ["alt_cursor"]);
+
         player.heading = pos.h;
         player.health = health;
         player.dimension = 0;
