@@ -1,6 +1,6 @@
 const BankInfo = {
   minimal_summa: 1, // Минимальная сумма пополнения|снятия
-  maximum_summa: 1000000, // Макисмальная сумма пополнения|снятия
+  maximum_summa: 10000000, // Макисмальная сумма пополнения|снятия
   functions: {
     updateBalanceMoney(player, isAtm = false) {
 			if (isAtm) {

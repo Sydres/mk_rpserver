@@ -105,7 +105,7 @@ module.exports = {
                 const faceFeatures = data.faceFeatures.map((faceFeature) => Math.round(faceFeature * 100) / 100);
                 let new_number = phoneOpen.getPhoneNumber();
                 var query = `INSERT INTO characters (name,regIp,sex,lastIp,mother,father,shapeMix,skinMix,
-                    eyeColor,hair,hairColor,faceFeatures,skills,accountId,x,y,z,h,bank,phone) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+                    eyeColor,hair,hairColor,faceFeatures,skills,accountId,x,y,z,h,money,phone) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
                 var values = [data.characterName, player.ip, player.sex, player.ip, data.mother,
                     data.father, data.shapeMix, data.skinMix, data.appearance.eyeColor, data.appearance.hair,
                     data.appearance.hairColor, JSON.stringify(faceFeatures), JSON.stringify(data.skills),
@@ -204,6 +204,7 @@ module.exports = {
         player.setHeadBlend(character.mother, character.father, 0, character.mother, character.father, 0, character.shapeMix, character.skinMix, 0);
         player.setFaceFeatures(character.faceFeatures);
 
+
         DB.Handle.query("SELECT * FROM characters_headoverlays WHERE character_id = ?", [character.id], (e, result) => {
             player.overlayColors = {};
             for (let i = 0; i < result.length; i++) {
@@ -231,6 +232,7 @@ module.exports = {
 
         character.health = 100;
         player.utils.spawn(character.health);
+
         player.armour = character.armour;
 
         player.call("setMoney", [player.money]);
@@ -316,7 +318,6 @@ module.exports = {
             ping: player.ping
         };
 
-        player.call("prompt.showByName", ["alt_cursor"]);
 
         if (player.warntime > 0) {
             let now = new Date().getTime() / 1000;
@@ -490,8 +491,6 @@ function initPlayerUtils(player) {
         if (player.arrestTime > 0 && player.demorgan < 1) return player.utils.doArrest(player.arrestCell, player.arrestTime, true);
         var pos = getPlayerSpawnPos(player);
         player.spawn(pos);
-
-
 
         player.heading = pos.h;
         player.health = health;

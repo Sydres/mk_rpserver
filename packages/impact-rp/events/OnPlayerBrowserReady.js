@@ -6,8 +6,13 @@ module.exports = {
 
         if (Config.autoLogin) {
             mp.events.call("authAccount", player, Config.login, Config.password);
-        } else if (Config.closedMode) player.call("modal.show", ["closed_mode"]);
-        else player.call("showAuthAccount");
+            player.call("prompt.showByName", ["alt_cursor"]);
+        } else if (Config.closedMode){
+           player.call("modal.show", ["closed_mode"]);
+         }
+        else{
+          player.call("showAuthAccount");
+      }
     }
 }
 var masksWithHideHairs = [114];

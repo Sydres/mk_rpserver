@@ -10,6 +10,8 @@ mp.events.add("render", () => {
 		return;
 	}
 
+	5.20, -919.8, 29.6
+
 	const position = localPlayer.position;
 	let found = false;
 
@@ -79,4 +81,3 @@ function onStopInteraction() {
 	mp.events.call("prompt.hide");
 	mp.events.call("selectMenu.hide");
 }
-

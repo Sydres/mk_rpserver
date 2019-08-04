@@ -29,13 +29,17 @@ function policeSendData(data, param) {
     promptAPI.showByName("documents_help");
     $(document).unbind("keydown", policeEHandler);
     $(document).keydown(policeEHandler);
+
 }
  // policeSendData(JSON.stringify({ Name: 'Ilya Gilfanov', Sex: 1, Minutes: 25, Rank: 'Сержант', ID: 1, Area: '#1' }));
 
 function policeEHandler(e) {
     if (e.keyCode == 69) { // E
         if(event == 2) inventoryAPI.show(true);
-        $(`#policePassport`).fadeOut("fast");
+        $(`#policePassport`).hide("fast");
         $(document).unbind("keydown", policeEHandler);
+        $(document).keydown(policeEHandler);
+
+
     }
 }

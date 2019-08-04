@@ -11,7 +11,7 @@ mp.events.add('guiReady', () => {
         mp.events.add('browserDomReady', (browser) => {
             if (browser == menu) {
                 mp.gui.execute("window.location = 'package://gamemode/chat/index.html'");
-                mp.discord.update('Union Role Play', 'unionrp.ru');
+                //mp.discord.update('Union Role Play', 'unionrp.ru');
                 // Init events.
                 require('gamemode/scripts/events.js')(menu);
                 require('gamemode/scripts/notifs.js');

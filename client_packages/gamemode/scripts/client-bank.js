@@ -1,5 +1,11 @@
 const BankInfo = {
-  blip: mp.blips.new(207, new mp.Vector3(235.43, 216.95, 106.29), { alpha: 255, scale: 0.7, color: 25, name: "Банк", shortRange: true }),
+  blip: [
+    mp.blips.new(207, new mp.Vector3(235.43, 216.95, 106.29), { alpha: 255, scale: 0.7, color: 25, name: "Банк", shortRange: true }),
+
+    mp.blips.new(500, new mp.Vector3(5.20, -919.8, 29.6), { alpha: 255, scale: 0.7, color: 25, name: "Банкомат", shortRange: true }),
+    mp.blips.new(500, new mp.Vector3(-526.55, -1222.9, 18.45), { alpha: 255, scale: 0.7, color: 25, name: "Банкомат", shortRange: true })
+
+  ],
   colshapes: [
     mp.colshapes.newSphere(241.36, 225.22, 106.29, 1.0),
     mp.colshapes.newSphere(243.20, 224.54, 106.29, 1.0),
