@@ -330,7 +330,7 @@ module.exports = {
         text = text.substr(0, 100);
         mp.players.forEach((rec) => {
             if (rec.sqlId) {
-                rec.call("BN_ShowWithPicture", ["EMS", player.name, text, "CHAR_ARTHUR", 2]);
+                rec.call("BN_ShowWithPicture", ["Центр медицины LS", player.name, text, "CHAR_CALL911", 2]);
             }
         });
     },

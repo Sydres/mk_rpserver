@@ -46,6 +46,7 @@ module.exports.Init = function() {
             } else {
                 house.setColor(255, 0, 0, 70);
                 house.blip.color = 49;
+                house.blip.name = "Дом игрока";
             }
             house.owner = ownerSqlId;
             house.ownerName = ownerName;
@@ -292,7 +293,7 @@ module.exports.Init = function() {
 
         var blip = mp.blips.new(type, pos, {
             color: color,
-            name: "",
+            name: "Свободное жильё",
             shortRange: true,
             scale: 0.7
         });
