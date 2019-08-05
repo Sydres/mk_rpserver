@@ -388,11 +388,16 @@ function putBoxBuilder(player){
     try
     {
         player.utils.putObject();
+        var skill = player.jobSkills[7 - 1] + 1;
         let money = Math.round(mp.economy["build_salary"].value * JobBuilder.out_boxes_positions[player.jobbuilderfloor].xs);
         player.utils.setMoney(player.money + money);
         player.call("createJobBuilderMarkBlip", [ true, false, -154.730, -1077.751, 21.685 ] );
-        player.utils.setJobSkills(7, player.jobSkills[7 - 1] + 1);
-        if (player.jobSkills[7 - 1] === 50) player.utils.warning("Вам открыта 2 ступень работы!");
+        player.utils.setJobSkills(7, skill);
+        if (player.jobSkills[7 - 1] === 50){
+          player.utils.warning("Вам открыта 2 ступень работы!");
+        }else{
+          player.notify("Опыт работы: ~g~" + skill + " ~w~из ~g~" + 50);
+        }
         player.utils.success(`Заработано: ${money}$`);
         player.jobbuilderfloor = -1;
     } catch (err){

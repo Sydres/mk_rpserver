@@ -36,7 +36,7 @@ function policeSendData(data, param) {
 function policeEHandler(e) {
     if (e.keyCode == 69) { // E
         if(event == 2) inventoryAPI.show(true);
-        $(`#policePassport`).hide("fast");
+        $(`#policePassport`).fadeOut("fast");
         $(document).unbind("keydown", policeEHandler);
         $(document).keydown(policeEHandler);
 

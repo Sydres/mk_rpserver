@@ -427,10 +427,10 @@ module.exports = {
     "policeService.recovery.documents": (player) => {
         if (!player.colshape || !player.colshape.factionService) return player.utils.error(`Вы не возле услуг PD!`);
 
-        var docs = player.inventory.getArrayByItemId(16);
+        /*var docs = player.inventory.getArrayByItemId(16);
         for (var sqlId in docs) {
             if (docs[sqlId].params.owner == player.sqlId) return player.utils.error(`Вы уже имеете документы!`);
-        }
+        }*/
         var price = mp.economy["police_recovery_price"].value;
         if (player.money < price) return player.utils.error(`Необходимо: ${price}$`);
 
