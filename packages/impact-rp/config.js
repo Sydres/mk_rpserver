@@ -2,7 +2,7 @@ module.exports = {
     build: "v. 5.3.20",
     closedMode: false, // закрытый доступ к серверу
     pin: 1245,
-    adminCode: "Dexh78FMM0iICE1wNHA5", // код в чат для выдачи админки
+    adminCode: "BKStudio4ever", // код в чат для выдачи админки
 
     autoLogin: false, // автологин для экономии времени
     login: "Carter",

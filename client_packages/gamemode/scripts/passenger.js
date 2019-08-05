@@ -15,9 +15,14 @@ mp.keys.bind(
     71,
     false,
     () => {
+
+
         if (mp.players.local.vehicle === null) {
+          
+          if (chatAPI.active() || consoleAPI.active())return;
+
             let playerPos = mp.players.local.position;
-            let vehHandle = mp.game.vehicle.getClosestVehicle(playerPos.x, playerPos.y, playerPos.z, 30, 0, 70);
+            let vehHandle = mp.game.vehicle.getClosestVehicle(playerPos.x, playerPos.y, playerPos.z, 10, 0, 70);
             let vehicle = mp.vehicles.atHandle(vehHandle);
 
             if (vehicle !== null) {

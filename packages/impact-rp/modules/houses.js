@@ -42,10 +42,12 @@ module.exports.Init = function() {
 
                 house.setColor(0, 187, 255, 70);
                 house.blip.color = 2;
+                house.blip.name = "Свободное жильё";
                 mp.fullDeleteItemsByParams(59, ["house"], [house.sqlId]);
             } else {
                 house.setColor(255, 0, 0, 70);
                 house.blip.color = 49;
+                house.blip.name = "Дом игрока";
             }
             house.owner = ownerSqlId;
             house.ownerName = ownerName;
@@ -281,8 +283,12 @@ module.exports.Init = function() {
 
         var color = 0;
 
-        if (data["owner"] == 0) color = 2;
-        else color = 1;
+        if (data["owner"] == 0){
+          color = 2;
+        }
+        else{
+          color = 1;
+        }
 
         var type = (data.owner) ? 40 : 374;
         //if (data["vehX"] == 0 && data["vehY"] == 0) color = 67;
