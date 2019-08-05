@@ -26,6 +26,7 @@ const BankInfo = {
     mp.blips.new(500, new mp.Vector3(-1410.18, -98.98, 52.43), { alpha: 255, scale: 0.7, color: 25, name: "Банкомат", shortRange: true }),
     mp.blips.new(500, new mp.Vector3(-2959.22, 487.86, 15.46), { alpha: 255, scale: 0.7, color: 25, name: "Банкомат", shortRange: true }),
     mp.blips.new(500, new mp.Vector3(-1827.19, 784.91, 138.30), { alpha: 255, scale: 0.7, color: 25, name: "Банкомат", shortRange: true }),
+    mp.blips.new(500, new mp.Vector3(333, -1426, 32.4), { alpha: 255, scale: 0.7, color: 25, name: "Банкомат", shortRange: true }),
     mp.blips.new(500, new mp.Vector3(-526.55, -1222.9, 18.45), { alpha: 255, scale: 0.7, color: 25, name: "Банкомат", shortRange: true })
 
   ],

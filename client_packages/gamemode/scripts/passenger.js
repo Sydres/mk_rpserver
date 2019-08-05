@@ -15,9 +15,10 @@ mp.keys.bind(
     71,
     false,
     () => {
+      if (window.medicTablet.active() || window.pdTablet.active() || window.armyTablet.active() || window.sheriffTablet.active() || window.fibTablet.active() || window.playerMenu.active() || chatAPI.active() || consoleAPI.active()) return;
         if (mp.players.local.vehicle === null) {
             let playerPos = mp.players.local.position;
-            let vehHandle = mp.game.vehicle.getClosestVehicle(playerPos.x, playerPos.y, playerPos.z, 30, 0, 70);
+            let vehHandle = mp.game.vehicle.getClosestVehicle(playerPos.x, playerPos.y, playerPos.z, 10, 0, 70);
             let vehicle = mp.vehicles.atHandle(vehHandle);
 
             if (vehicle !== null) {
