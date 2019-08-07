@@ -25,9 +25,22 @@ mp.events.add("take.police.order", (player, name) => {
         return;
     }
 });
-function recallPolice(player) {
-  if (mp.factions.isPoliceFaction(player.faction)){
-    player.notifyWithPicture('Диспетчер', 'LSPD', 'Вас вызвали сосать член', 'CHAR_CALL911');
+"police.addCall": (player, text) =>  {
+      // TODO: Проверка на наличие мобилы.
+
+      mp.players.forEach((rec) => {
+          if (mp.factions.isPoliceFaction(rec.faction)) {
+              rec.call(`tablet.police.addCall`, [{
+                  id: player.id,
+                  name: player.name,
+                  pos: player.position,
+                  message: text
+              }]);
+          }
+      });
+      player.policeCallTime = new Date().getTime();
+      player.utils.success(`Вызов отправлен!`);
+  },
     //cancelPolice(player, true);
   //}
 //  else{
