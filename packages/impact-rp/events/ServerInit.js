@@ -17,7 +17,10 @@ module.exports = {
             require(`../modules/achievements.js`).Init();
             require('../modules/factions.js').Init();
             require('../modules/vehicles.js').Init();
-            require('../modules/objects.js').Init(); //wait sync fix
+            require('../modules/objects.js').Init();
+
+            require('../modules/player_blips/index.js');
+
             // require('../modules/routep.js').Init();
             require('../modules/jobs/trash/trash.js').Init();
             require('../modules/jobs/gopostal/gopostal.js');
