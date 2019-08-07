@@ -50,7 +50,7 @@ global.initPlayerTelephone = function(player) {
       switch (++id) {
         case 13:
             let taxiOpen = require("./jobs/taxi/taxi.js");
-            taxiOpen.recallTaxi(player);
+            police.addCall(player);
             break;
 
         case 3:
