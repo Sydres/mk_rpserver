@@ -50,12 +50,12 @@ global.initPlayerTelephone = function(player) {
       switch (++id) {
         case 13:
             let taxiOpen = require("./jobs/taxi/taxi.js");
-            police.addCall(player);
+            taxiOpen.recallTaxi(player);
             break;
 
         case 3:
             let policeOpen = require("./factions/police/police.js");
-            policeOpen.recallPolice(player);
+          police.addCall(player);
             break;
 
         default: player.utils.error("Абонент временно недоступен!");
