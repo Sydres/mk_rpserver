@@ -2020,7 +2020,7 @@ module.exports = {
         minLevel: 5,
         syntax: "",
         handler: (player, args) => {
-            return terminal.warning(`Ожидаем фикс...`, player);
+            //return terminal.warning(`Ожидаем фикс...`, player);
             if (!player.debugObj) return terminal.error(`Объект не найден! Создайте с помощью /obj.`, player);
             var obj = player.debugObj;
             mp.objects.save(obj.name, obj.position, obj.rotation.z);

@@ -8,10 +8,17 @@ mp.keys.bind(0x73, true, function() {
     mp.game.graphics.notify("Voice Chat: " + ((!mp.voiceChat.muted) ? "~g~enabled" : "~r~disabled"));
 });
 
+var hide = 0;
 mp.keys.bind(0x76, true, function() {   // F7
-    mp.game.mobile.createMobilePhone(0);
-    mp.game.mobile.setMobilePhoneScale(300);
-    mp.gui.chat.push('Mobile Created');
+    if(hide==0){
+      mp.game.mobile.createMobilePhone(0);
+      mp.game.mobile.setMobilePhoneScale(300);
+      hide++;
+    }else{
+      hide -= 1;
+      mp.game.mobile.setMobilePhoneScale(0);
+    }
+    //mp.gui.chat.push('Mobile Created');
 });
 
 let g_voiceMgr =

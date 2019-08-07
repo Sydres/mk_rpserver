@@ -11,7 +11,7 @@ module.exports = {
         //player.spawn(new mp.Vector3(123.2, -229.06, 54.55)); // место создания перса (магаз шмоток)
         player.model = mp.joaat("MP_M_Freemode_01");
         player.heading = 43.14;
-        player.dimension = 10000 + player.id; //чтобы игроки не стримились друг другу
+        player.dimension = /*10000 + player.id*/2; //чтобы игроки не стримились друг другу
 
         player.outputChatBox(`Мы трудимся ради Вас!`);
     }

@@ -5,13 +5,13 @@ module.exports.Init = () => {
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: 'bkstudio.dev',
-              pass: 'BKStudio4ever'
+              user: 'impact.rageroleplay',
+              pass: 'Impact_RP_Pass'
             }
         });
-        message += "<br /><br /> С Уважением, Команда BKStudio RP.";
+        message += "<br /><br /> С Уважением, Команда Impact RP.";
         const mailOptions = {
-            from: 'bkstudio.dev@gmail.com',
+            from: 'impact_rp@gmail.com',
             to: to,
             subject: subject,
             html: message

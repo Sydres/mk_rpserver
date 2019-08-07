@@ -1,6 +1,6 @@
 const RentInfo = {
     price: 50,
-    time: 60000 // 1 минута
+    time: 60000 * 60 // 60 минут
 }
 
 mp.events.add("playerQuit", function playerQuitHandler(player, exitType, reason) {
@@ -37,7 +37,7 @@ mp.events.add("playerExitVehicle", function playerExitVehicleHandler(player, veh
         if (vehicle.owner === -4001 && player.seat === -1) {
             if (vehicle.rent_owner === player) {
                 player.call("control.rent.vehicle.time", [RentInfo.time]);
-                player.utils.error("У вас есть 60 секунд, чтобы вернуться в транспорт!");
+                player.utils.error("У вас есть 60 минут, чтобы вернуться в транспорт!");
             } else {
                 player.call("stop.rent.vehicle", [false]);
             }

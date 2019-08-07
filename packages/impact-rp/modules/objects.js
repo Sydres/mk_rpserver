@@ -15,7 +15,7 @@ function loadObjectsFromDB() {
                 alpha: 255,
             });
             object.sqlId = o.id;
-            object.data = JSON.parse(o.data);
+            object.data = o.data;
         }
 
         console.log(`Объекты загружены: ${i} шт.`);

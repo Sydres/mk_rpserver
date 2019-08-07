@@ -19,8 +19,8 @@ module.exports = {
         //player.spawnPos.h = hospital.h;
 
         //Спавн в лікарні
-        player.spawnPos = [325, -1413, 32.5];
-        player.spawnPos.h = 138;
+        player.spawnPos = [303, -1454.5, 29];
+        player.spawnPos.h = 314.5;
 
         var timerId = setTimeout(() => {
             try {
