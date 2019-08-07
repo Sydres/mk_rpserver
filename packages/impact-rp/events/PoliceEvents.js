@@ -718,6 +718,7 @@ module.exports = {
 
     "police.addCall": (player, text) => {
         // TODO: Проверка на наличие мобилы.
+
         mp.players.forEach((rec) => {
             if (mp.factions.isPoliceFaction(rec.faction)) {
                 rec.call(`tablet.police.addCall`, [{
