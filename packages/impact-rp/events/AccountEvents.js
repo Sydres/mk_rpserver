@@ -263,7 +263,7 @@ module.exports = {
                 initPlayerAchievements(player);
                 initLocalVars(player);
                 player.utils.success(`Здравствуйте, ${result[0].login}!`);
-                player.utils.warning(`Для вызова курсора нажмите | ALT |`);
+                //player.utils.warning(`Для вызова курсора нажмите | ALT |`);
                 player.utils.initChoiceCharacter();
 
             });

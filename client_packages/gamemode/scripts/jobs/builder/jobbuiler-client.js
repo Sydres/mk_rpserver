@@ -174,14 +174,16 @@ mp.keys.bind(0x45, false, function() { // E key
     if (mp.players.local.getVariable("keydownevariable") != undefined) {
         if (mp.game.gameplay.getDistanceBetweenCoords(mp.players.local.position.x, mp.players.local.position.y, mp.players.local.position.z, -95.052, -1014.401, 27.275, true) < 4) {
             mp.gui.cursor.show(true, true);
-            if (mp.players.local.getVariable("keydownevariable") === true)
+            if (mp.players.local.getVariable("keydownevariable") === true){
                 mp.events.call("choiceMenu.show", "accept_job_builder", {
                     name: "уволиться со Стройки?"
                 });
-            else
+              }
+            else{
                 mp.events.call("choiceMenu.show", "accept_job_builder", {
                     name: "устроиться на Стройку?"
                 });
+              }
         }
     }
 });

@@ -221,7 +221,7 @@ exports = (menu) => {
         mp.events.callRemote("authCharacter", characterIndex);
         mp.events.call("finishMoveCam");
         mp.events.call("setFreeze", false);
-        
+
 
     });
 
@@ -499,6 +499,7 @@ exports = (menu) => {
         mp.game.ui.displayRadar(true);
         mp.game.player.setHealthRechargeMultiplier(0); //Disable regeneration
         mp.events.call("chat.enable", true);
+        mp.events.call("prompt.show", `Нажмите <span>ALT</span>, чтобы вызвать курсор`);
         mp.events.call("inventory.enable", true);
         mp.events.call("playerMenu.enable", true);
         mp.events.call("adminPanel.enable", true);

@@ -9,7 +9,7 @@ exports = (menu) => {
 
     mp.events.add('tablet.police.removeCall', (playerId) => {
         menu.execute(`mp.events.call('pdTablet', { removeCall: ${playerId}, event: 'removeCall' })`);
-    }); 
+    });
 
     mp.events.add('tablet.police.addTeamPlayer', (data) => {
         menu.execute(`mp.events.call('pdTablet', { addTeamPlayer: ${JSON.stringify(data)}, event: 'addTeamPlayer' })`);

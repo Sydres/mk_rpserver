@@ -73,6 +73,7 @@ $(document).ready(() => {
                 mp.trigger("events.callRemote", "gopostal.team.cancel");
             },
         },
+        
         "accept_job_builder": {
             text: "Вы хотите начать работу <Работа>?",
             on: (values) => {
@@ -85,10 +86,24 @@ $(document).ready(() => {
                 mp.trigger("client.job.cursor.cancel");
             },
         },
+
+        "accept_job_grapecollector": {
+            text: "Вы хотите начать работу <Работа>?",
+            on: (values) => {
+                menus["accept_job_grapecollector"].text = `Вы хотите ${values.name}`;
+            },
+            yes: () => {
+                mp.trigger("events.callRemote", "job.grapecollector.agree");
+            },
+            no: () => {
+                mp.trigger("client.job.cursor.cancel");
+            },
+        },
+
         "accept_job_trucker": {
             text: "Вы хотите начать работу <Работа>?",
             on: (values) => {
-                menus["accept_job_builder"].text = `Вы хотите ${values.name}`;
+                menus["accept_job_trucker"].text = `Вы хотите ${values.name}`;
             },
             yes: () => {
                 mp.trigger("events.callRemote", "job.trucker.agree");
@@ -109,6 +124,7 @@ $(document).ready(() => {
                 mp.trigger("client.job.cursor.cancel");
             },
         },
+
         "accept_job_waterfront": {
             text: "Вы хотите начать работу <Работа>?",
             on: (values) => {
@@ -121,6 +137,7 @@ $(document).ready(() => {
                 mp.trigger("client.job.cursor.cancel");
             },
         },
+
         "accept_job_pizza": {
             text: "Вы хотите начать работу <Работа>?",
             on: (values) => {

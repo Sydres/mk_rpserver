@@ -2,6 +2,12 @@ const RentInfo = {
    timer: undefined
 }
 
+mp.blips.new(494, new mp.Vector3(-170.63, -1433.45, 30.89), {color: 60,name: "Аренда транспорта"});
+mp.blips.new(494, new mp.Vector3(-155.93, -179.8, 43.78), {color: 60,name: "Аренда транспорта"});
+mp.blips.new(494, new mp.Vector3(-2971.72, 350.49, 14.77), {color: 60,name: "Аренда транспорта"});
+mp.blips.new(494, new mp.Vector3(-155.93, -179.8, 43.78), {color: 60,name: "Аренда транспорта"});
+
+
 mp.events.add('start.rent.vehicle', (price) => {
  let vehicle = mp.players.local.vehicle;
  if (vehicle) {

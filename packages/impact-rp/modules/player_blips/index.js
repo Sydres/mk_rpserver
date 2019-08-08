@@ -21,6 +21,8 @@ mp.events.add('playerSpawn', (player) =>
 	blips[player.id].name = /*player.name*/ "Игрок";
 	blips[player.id].dimension = player.dimension;
 	blips[player.id].colour = BlipColor;
+  blips[player.id].shortRange = true;
+
 });
 
 //When a player have a bad luck of dying...

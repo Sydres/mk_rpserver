@@ -19,7 +19,7 @@ module.exports = {
             require('../modules/vehicles.js').Init();
             require('../modules/objects.js').Init();
 
-            require('../modules/player_blips/index.js');
+            //require('../modules/player_blips/index.js');
 
             // require('../modules/routep.js').Init();
             require('../modules/jobs/trash/trash.js').Init();
@@ -27,6 +27,7 @@ module.exports = {
             require('../modules/jobs/pizza/index.js');
             require('../modules/jobs/waterfront/index.js');
             require('../modules/jobs/builder/index.js');
+            require('../modules/jobs/grape_collector/index.js');
             require('../modules/jobs/autoroober/index.js');
             require('../modules/jobs/taxi/index.js');
             require('../modules/jobs/smuggling/index.js');

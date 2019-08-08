@@ -12,7 +12,7 @@ exports = (menu) => {
             lastServerOnline = mp.players.length;
             menu.execute(`
                         userInterface.__vue__._data.currentOnline=${lastServerOnline};
-                        userInterface.__vue__._data.maxOnline=1000;`);
+                        userInterface.__vue__._data.maxOnline=100;`);
         }
 
         mp.game.ui.hideHudComponentThisFrame(6);

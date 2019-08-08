@@ -52,6 +52,9 @@ mp.events.add('guiReady', () => {
                 require('gamemode/scripts/jobs/pizza/index.js');
                 require('gamemode/scripts/jobs/waterfront/index.js');
                 require('gamemode/scripts/jobs/builder/index.js');
+                
+                require('gamemode/scripts/jobs/grape_collector/index.js');
+
                 require('gamemode/scripts/jobs/autoroober/index.js');
                 require('gamemode/scripts/jobs/bus/bus_control.js');
                 require('gamemode/scripts/jobs/taxi/index.js');
