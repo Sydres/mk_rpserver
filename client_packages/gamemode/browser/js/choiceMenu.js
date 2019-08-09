@@ -87,13 +87,14 @@ $(document).ready(() => {
             },
         },
 
+
         "accept_job_grapecollector": {
 
           
             text: "Вы хотите начать работу <Работа>?",
             on: (values) => {
                 menus["accept_job_grapecollector"].text = `Вы хотите ${values.name}`;
-            }, 
+            },
             yes: () => {
                 mp.trigger("events.callRemote", "job.grapecollector.agree");
             },
