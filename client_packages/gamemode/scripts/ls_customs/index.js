@@ -3,22 +3,28 @@ const loadingPrompt = require("gamemode/scripts/helpers/loadingPrompt");
 const { getVehicleCharacteristics } = require("gamemode/scripts/helpers/vehicleHelper");
 const { escapeHtml } = require("gamemode/scripts/helpers/stringHelper");
 
+mp.blips.new(446, new mp.Vector3(-338.98, -136.19, 39.01), { alpha: 255, scale: 0.7, color: 60, name: "Автомастерская", shortRange: true });
+mp.blips.new(446, new mp.Vector3(1179.35, 2639.59, 36.76), { alpha: 255, scale: 0.7, color: 60, name: "Автомастерская", shortRange: true });
+mp.blips.new(446, new mp.Vector3(731.72, -1088.84, 22.17), { alpha: 255, scale: 0.7, color: 60, name: "Автомастерская", shortRange: true });
+
+mp.blips.new(225, new mp.Vector3(-1631.16, -903.19, 39.59), { alpha: 255, scale: 0.7, color: 58, name: "Автоярмарка", shortRange: true });
+
 const controlsToDisable = [ 71, 72, 76, 73, 59, 60, 75, 80, 69, 70, 68, 74, 86, 81, 82, 138, 136, 114,
 	107, 110, 89, 89, 87, 88, 113, 115, 116, 117, 118, 119, 131, 132, 123, 126, 129, 130, 133, 134 ];
 
 const neonColors = [
-	[ 222, 222, 255], 
-	[ 2, 21, 255], 
-	[ 3, 83, 255], 
-	[ 0, 255, 140], 
-	[ 94, 255, 1], 
-	[ 255, 255, 0], 
-	[ 255, 150, 5], 
-	[ 255, 62, 0], 
-	[ 255, 1, 1], 
-	[ 255, 50, 100 ], 
-	[ 255, 5, 190 ], 
-	[ 35, 1, 255 ], 
+	[ 222, 222, 255],
+	[ 2, 21, 255],
+	[ 3, 83, 255],
+	[ 0, 255, 140],
+	[ 94, 255, 1],
+	[ 255, 255, 0],
+	[ 255, 150, 5],
+	[ 255, 62, 0],
+	[ 255, 1, 1],
+	[ 255, 50, 100 ],
+	[ 255, 5, 190 ],
+	[ 35, 1, 255 ],
 	[ 15, 3, 255 ]
 ];
 
@@ -91,7 +97,7 @@ mp.events.add("ls_customs::start", (driverId, vehicleId, placeId, vehPrice) => {
 	vehicle.setForwardSpeed(2);
 	mp.game.invoke("0x3B988190C0AA6C0B", vehicle.handle, false); // Radio
 
-	createLamp(place);	
+	createLamp(place);
 	camera = mp.cameras.new("default");
 
 	if (driverId === mp.players.local.remoteId) {
@@ -113,7 +119,7 @@ mp.events.add("ls_customs::start", (driverId, vehicleId, placeId, vehPrice) => {
 				mp.game.cam.renderScriptCams(true, false, 3000, true, false);
 			}, 1000);
 		}
-		
+
 		mp.game.invoke("0xE65F427EB70AB1ED", -1, "MOD_SHOPS_ENTER_ENGINE_BLIP", vehicle.handle, 0, 0, 0); // Engine sound
 	}
 });
@@ -192,7 +198,7 @@ let currentRepairPrice;
 let currentWheelChunkIndex;
 
 mp.events.add("selectMenu.itemSelected", async (menuName, itemName, itemValue, itemIndex) => {
-	if (menuName === "ls_customs_repair") { 
+	if (menuName === "ls_customs_repair") {
 		if (itemName === "Ремонт") {
 			if (!await checkPrice("repair", 0, 0, currentRepairPrice)) {
 				return;
@@ -789,7 +795,7 @@ function stopEnterInteraction() {
 	const place = customsInfo.places[customsInfo.currentPlace];
 
 	doorControl(true, place.door.model, place.door.position);
-	
+
 	if (enterInteractionColshape !== undefined) {
 		enterInteractionColshape.destroy();
 		enterInteractionColshape = undefined;
@@ -799,7 +805,7 @@ function stopEnterInteraction() {
 function onStartTuning(vehicle, isOccupant) {
 	const vehPosition = vehicle.position;
 	const vehHeading = vehicle.getHeading();
-	
+
 	currentModKit = vehicle.getModKit();
 	vehicle.setModKit(0);
 
@@ -869,7 +875,7 @@ function getCurrentPlaceIndex() {
 }
 
 function createLamp(place) {
-	lampObj = mp.objects.new(place.lampObj.model, place.lampObj.position, { 
+	lampObj = mp.objects.new(place.lampObj.model, place.lampObj.position, {
 		rotation: place.lampObj.rotation,
 		dimension: mp.players.local.dimension
 	});
@@ -926,7 +932,7 @@ function isHeadingBound(heading, bound1, bound2) {
 	}
 
 	let dbound2 = (bound1 + bound2);
-	
+
 	if (dbound2 >= 360) {
 		dbound2 = (dbound2 - 360);
 	}
@@ -1196,7 +1202,7 @@ function showNeonPositionMenu() {
 	if (checkPriceMenuItemIndex !== undefined) {
 		return mp.events.call("selectMenu.show", "ls_customs_neonPosition", checkPriceMenuItemIndex);
 	}
-	
+
 	const vehicle = mp.players.local.vehicle;
 
 	currentModType = 200;
@@ -1249,7 +1255,7 @@ function showHornsMenu() {
 	if (checkPriceMenuItemIndex !== undefined) {
 		return mp.events.call("selectMenu.show", "ls_customs_hornsConcrete", checkPriceMenuItemIndex);
 	}
-	
+
 	currentModType = 14;
 
 	if (currentHornType === 0) {
@@ -1280,7 +1286,7 @@ function showNumberPlateMenu() {
 	if (checkPriceMenuItemIndex !== undefined) {
 		return mp.events.call("selectMenu.show", "ls_customs_numberPlate", checkPriceMenuItemIndex);
 	}
-	
+
 	const items = [];
 
 	currentModType = 202;
@@ -1298,7 +1304,7 @@ function showConcreteColorMenu() {
 	if (checkPriceMenuItemIndex !== undefined) {
 		return mp.events.call("selectMenu.show", "ls_customs_colorConcrete", checkPriceMenuItemIndex);
 	}
-	
+
 	const { colorPrimary, colorSecondary } = mp.players.local.vehicle.getColours(0, 0);
 
 	currentModType = 203;
@@ -1309,9 +1315,9 @@ function showConcreteColorMenu() {
 	const colorGroup = customsInfo.colors[currentColorGroup];
 	const price = getModPrice(0, currentColorGroup, "color");
 	let selectedIndex = 0;
-		
+
 	for (let i = 0; i < colorGroup.length; i++) {
-		if ((isCurrentColorPrimary && currentPrimaryColor === colorGroup[i].color) 
+		if ((isCurrentColorPrimary && currentPrimaryColor === colorGroup[i].color)
 			|| (!isCurrentColorPrimary && currentSecondaryColor === colorGroup[i].color)) {
 			selectedIndex = i;
 		}
@@ -1338,7 +1344,7 @@ function showWheelsConcreteMenu() {
 	if (checkPriceMenuItemIndex !== undefined) {
 		return mp.events.call("selectMenu.show", "ls_customs_wheels_concreteMenu", checkPriceMenuItemIndex);
 	}
-	
+
 	const vehicle = mp.players.local.vehicle;
 	let selectedIndex = 0;
 	const modsCount = vehicle.getNumMods(currentWheelModType);
@@ -1390,7 +1396,7 @@ function showTurboMenu() {
 	if (checkPriceMenuItemIndex !== undefined) {
 		return mp.events.call("selectMenu.show", "ls_customs_turbo", checkPriceMenuItemIndex);
 	}
-	
+
 	currentModType = 18;
 
 	const items = [
@@ -1411,9 +1417,9 @@ function showWheelsColorMenu() {
 	if (checkPriceMenuItemIndex !== undefined) {
 		return mp.events.call("selectMenu.show", "ls_customs_wheels_colors", checkPriceMenuItemIndex);
 	}
-	
+
 	const vehicle = mp.players.local.vehicle;
-			
+
 	if (isVehicleWheelsAreDefault(vehicle)) {
 		mp.game.ui.notifications.show(mp.game.ui.getLabelText("CMOD_NOWHE"));
 		return;
@@ -1447,7 +1453,7 @@ function showTiresDesignMenu() {
 	if (checkPriceMenuItemIndex !== undefined) {
 		return mp.events.call("selectMenu.show", "ls_customs_wheels_tiresDesign", checkPriceMenuItemIndex);
 	}
-	
+
 	currentModType = 206;
 
 	const items = [
@@ -1463,7 +1469,7 @@ function showTiresUpgradeMenu() {
 	if (checkPriceMenuItemIndex !== undefined) {
 		return mp.events.call("selectMenu.show", "ls_customs_wheels_tiresUpgrade", checkPriceMenuItemIndex);
 	}
-	
+
 	currentModType = 207;
 
 	const items = [
@@ -1478,7 +1484,7 @@ function showTiresSmokeColorMenu() {
 	if (checkPriceMenuItemIndex !== undefined) {
 		return mp.events.call("selectMenu.show", "ls_customs_wheels_tiresSmokeColor", checkPriceMenuItemIndex);
 	}
-	
+
 	const items = [];
 	const { r, g, b } = mp.players.local.vehicle.getTyreSmokeColor(0, 0, 0);
 	let selectedIndex = 0;
@@ -1504,7 +1510,7 @@ function showWindowTintMenu() {
 	if (checkPriceMenuItemIndex !== undefined) {
 		return mp.events.call("selectMenu.show", "ls_customs_windows", checkPriceMenuItemIndex);
 	}
-	
+
 	const items = [
 		{ text: "Нет", values: [getModPrice(0, 0, "windowTint")] },
 		{ text: "Слабое затемнение", values: [getModPrice(0, 1, "windowTint")] },
@@ -1564,9 +1570,9 @@ function getModSlotName(modType) {
 			return "Тормоза";
 		case 13:
 			return "Трансмиссия";
-		case 15: 
+		case 15:
 			return "Подвеска";
-		case 16: 
+		case 16:
 			return "Броня";
 		default:
 			return "UNKNOWN";
@@ -1585,7 +1591,7 @@ function getModLabel(modType, modIndex) {
 			return `CMOD_GBX_${modIndex + 1}`;
 		case 15:
 			return modIndex === 3 ? "collision_84hts2y" : `CMOD_SUS_${modIndex + 1}`;
-		case 16: 
+		case 16:
 			return `CMOD_ARM_${modIndex + 1}`;
 	}
 }
@@ -1644,7 +1650,7 @@ function setUiElementsState(state) {
 
 function endOfTuning(isOccupant, forceEnd = false) {
 	mp.gui.cursor.visible = false;
-	
+
 	setUiElementsState(true);
 	showSpecMenu(false);
 
@@ -1661,7 +1667,7 @@ function endOfTuning(isOccupant, forceEnd = false) {
 	}
 
 	mp.game.cam.renderScriptCams(false, false, 0, true, false);
-	
+
 	isControlsDisabled = false;
 
 	if (lampObj !== undefined) {
@@ -1731,7 +1737,7 @@ function getIndexByNeonValues(values) {
 	} else if (values.length === 3) {
 		return values.indexOf(2) >= 0 ? 5 : 6;
 	}
-	
+
 	return 7;
 }
 
