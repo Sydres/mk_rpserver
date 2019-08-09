@@ -73,7 +73,7 @@ $(document).ready(() => {
                 mp.trigger("events.callRemote", "gopostal.team.cancel");
             },
         },
-        
+
         "accept_job_builder": {
             text: "Вы хотите начать работу <Работа>?",
             on: (values) => {
@@ -88,6 +88,8 @@ $(document).ready(() => {
         },
 
         "accept_job_grapecollector": {
+
+          
             text: "Вы хотите начать работу <Работа>?",
             on: (values) => {
                 menus["accept_job_grapecollector"].text = `Вы хотите ${values.name}`;
