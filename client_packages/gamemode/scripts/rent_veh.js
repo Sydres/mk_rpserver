@@ -8,7 +8,7 @@ mp.blips.new(494, new mp.Vector3(-2971.72, 350.49, 14.77), {color: 60,name: "А�
 mp.blips.new(494, new mp.Vector3(-155.93, -179.8, 43.78), {color: 60,name: "Аренда транспорта", shortRange: true, scale: 0.7});
 mp.blips.new(494, new mp.Vector3(-1629.9, -973.2, 13), {color: 60,name: "Аренда транспорта", shortRange: true, scale: 0.7});
 mp.blips.new(494, new mp.Vector3(-290, - 747.8, 34), {color: 60,name: "Аренда транспорта", shortRange: true, scale: 0.7});
-
+mp.blips.new(494, new mp.Vector3(395.58, -648.53, 28.50), {color: 60,name: "Аренда транспорта", shortRange: true, scale: 0.7});
 
 
 mp.events.add('start.rent.vehicle', (price) => {
