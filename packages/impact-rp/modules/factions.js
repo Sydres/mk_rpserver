@@ -325,7 +325,7 @@ function initFactionProductsMarkers() {
     ];
     var positions = [new mp.Vector3(3607.36, 3720.41, 29.69), new mp.Vector3(1248.69, -3017.11, 9.32), new mp.Vector3(3108.95, -4818.94, 15.26)];
     var blips = [153, 473, 473];
-    var blipNames = [`Медикаменты`, `Боеприпасы`, `Боеприпасы`];
+    var blipNames = [`Медикаменты`, `Обеспечение Армии`, `Обеспечение ВМФ`];
 
     for (var i = 0; i < positions.length; i++) {
         var pos = positions[i];
