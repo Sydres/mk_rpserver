@@ -12,11 +12,13 @@
 }
 
 #selectorCharacters .user-block {
-    width: 37.03704vh;
-    height: 64.07407vh;
-    border-radius: 1.11111vh;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.75);
+  width: 37.03704vh;
+  height: 70vh;
+  border-radius: 1.11111vh;
+  text-align: center;
+  background-blend-mode: multiply;
+  background-size: cover;
+  background: url(../img/selectorCharacter/tabs2.png) #000000d6;
 }
 
 #selectorCharacters .user-info {
@@ -150,7 +152,8 @@
 }
 
 #selectorCharacters .user-block-info p {
-    color: #68007d;
+    color: #ffffff;
+    margin-top: 15%;
     font-size: 1.66667vh;
     font-weight: bold;
     text-transform: uppercase;

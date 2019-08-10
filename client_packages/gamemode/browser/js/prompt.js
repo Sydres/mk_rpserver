@@ -9,9 +9,6 @@ $(document).ready(() => {
         "vehicle_engine": {
             text: "Нажмите <span>2</span>, чтобы завести двигатель автомобиля."
         },
-        "alt_cursor": {
-            text: "Нажмите <span>ALT</span>, чтобы вызвать курсор."
-        },
         "vehicle_repair": {
             text: "Автомобиль поломался. Необходимо вызвать механика."
         },

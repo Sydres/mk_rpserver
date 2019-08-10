@@ -17,7 +17,7 @@ mp.events.add('guiReady', () => {
                 require('gamemode/scripts/notifs.js');
                 require('gamemode/scripts/player_location.js');
                 require('gamemode/scripts/passenger.js');
-                require('gamemode/scripts/voicechat.js');
+                //require('gamemode/scripts/voicechat.js');
                 require('gamemode/scripts/browser.js')(menu);
                 require('gamemode/scripts/account_events.js')(menu);
                 require('gamemode/scripts/character_events.js')(menu);
@@ -52,7 +52,7 @@ mp.events.add('guiReady', () => {
                 require('gamemode/scripts/jobs/pizza/index.js');
                 require('gamemode/scripts/jobs/waterfront/index.js');
                 require('gamemode/scripts/jobs/builder/index.js');
-                
+
                 require('gamemode/scripts/jobs/grape_collector/index.js');
 
                 require('gamemode/scripts/jobs/autoroober/index.js');

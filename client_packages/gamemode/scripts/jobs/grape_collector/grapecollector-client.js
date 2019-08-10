@@ -2,9 +2,12 @@ const JobGrapeCollector = {
     timeout: undefined,
     blip: undefined,
     marker: undefined,
+    keyDownE: undefined,
     colshape: undefined,
     vehicle: undefined
 };
+
+
 
 mp.events.add("time.remove.back.grapecollector", (player) => {
     try {
@@ -25,7 +28,7 @@ mp.events.add('createJobGrapeCollectorRoom', (type) => {
         if (type === false)
             marker.destroy();
         else
-            marker = mp.markers.new(20, new mp.Vector3(-1855.48, 2091.78, 140.36), 1, {
+            marker = mp.markers.new(20, new mp.Vector3(-1853.21, 2087.8, 140), 1, {
                 visible: true,
                 color: [255, 0, 0, 180],
                 rotation: 180
@@ -106,12 +109,23 @@ mp.events.add('createJobGrapeCollectorMarkBlip', (type, type2, posx, posy, posz,
             JobGrapeCollector.marker = mp.markers.new(1, new mp.Vector3(posx, posy, posz - 1.2), 1, {
                 visible: true,
                 dimension: 0,
-                color: [255, 0, 0, 180]
+                color: [0, 255, 0, 180]
             });
             JobGrapeCollector.blip = mp.blips.new(1, new mp.Vector3(posx, posy, posz), {
                 alpha: 255,
                 color: 38
             });
+        }
+        else{
+          JobGrapeCollector.marker = mp.markers.new(1, new mp.Vector3(posx, posy, posz - 1.2), 1, {
+              visible: true,
+              dimension: 0,
+              color: [255, 0, 0, 180]
+          });
+          JobGrapeCollector.blip = mp.blips.new(1, new mp.Vector3(posx, posy, posz), {
+              alpha: 255,
+              color: 38
+          });
         }
     } catch (err) {
         mp.game.graphics.notify("~r~" + err);
@@ -131,7 +145,7 @@ function deleteData() {
         delete JobGrapeCollector.colshape;
     }
 }
-/*mp.events.add('create.job.grapecollector.load', () => {
+mp.events.add('create.job.grapecollector.load', () => {
     try {
         if (!JobGrapeCollector.vehicle) {
             mp.game.graphics.notify("~r~ТРАНСПОРТ НЕ ОБНАРУЖЕН!");
@@ -154,7 +168,7 @@ function deleteData() {
         mp.game.graphics.notify("~r~" + err);
         return;
     }
-});*/
+});
 mp.events.add('startGrapeCollectorUnload', () => {
     if (JobGrapeCollector.vehicle) {
         JobGrapeCollector.vehicle.freezePosition(true);
@@ -164,20 +178,36 @@ mp.events.add('startGrapeCollectorUnload', () => {
         }, 7000);
     }
 });
+
+mp.events.add('setGrapeJobStatus', (status) => { JobGrapeCollector.keyDownE = status; });
+mp.events.add('getGrapeJobStatus', (status) => {
+  if (status !== "cancel") {
+    JobGrapeCollector.keyDownE = status;
+
+  } else {
+    JobGrapeCollector.keyDownE = null;
+  }
+});
+
 mp.events.add('playerEnterColshape', (shape) => {
 
     if (shape === oshape){
       mp.events.call("prompt.show", `Нажмите <span>Е</span> для взаимодействия`);
+
     }
 
-    //else if (shape === JobGrapeCollector.colshape) mp.events.callRemote("use.grapecollectorfunctions.job");
+    else if (shape === JobGrapeCollector.colshape){
+      mp.events.callRemote("use.grapecollectorfunctions.job");
+  }
 });
+
 mp.events.add('client.job.cursor.cancel', () => {
     mp.gui.cursor.show(false, false);
 });
-mp.keys.bind(0x45, false, function() { // E key
-    if (mp.players.local.getVariable("keydownevariable") != undefined) {
-        if (mp.game.gameplay.getDistanceBetweenCoords(mp.players.local.position.x, mp.players.local.position.y, mp.players.local.position.z, -1853.86, 2093.4, 140.2) < 4) {
+
+/*mp.keys.bind(0x45, false, function() { // E key
+        if (mp.game.gameplay.getDistanceBetweenCoords(mp.players.local.position.x, mp.players.local.position.y, mp.players.local.position.z, -1855, 2092.3, 140.32) < 4) {
+        if (shape === oshape){
             mp.gui.cursor.show(true, true);
             if (mp.players.local.getVariable("keydownevariable") == true){
                 mp.events.call("choiceMenu.show", "accept_job_grapecollector", {
@@ -190,5 +220,18 @@ mp.keys.bind(0x45, false, function() { // E key
                 });
               }
         }
-    }
+      }
+});*/
+
+mp.keys.bind(0x45, false, function () { // E key
+	if (JobGrapeCollector.keyDownE !== undefined) {
+		if (mp.game.gameplay.getDistanceBetweenCoords(mp.players.local.position.x, mp.players.local.position.y, mp.players.local.position.z, -1855, 2092.3, 140.32, true) < 4) {
+      mp.gui.cursor.show(true, true);
+      if (JobGrapeCollector.keyDownE === true) {
+          mp.events.call("choiceMenu.show", "accept_job_grapecollector", {name: "уволиться с Виноградника?"});
+      } else {
+					mp.events.call("choiceMenu.show", "accept_job_grapecollector", {name: "устроиться на Виноградник?"});
+      }
+		}
+	}
 });

@@ -443,6 +443,10 @@ module.exports = {
             let jobOpen = require("../modules/jobs/waterfront/waterfront.js");
             if (player.getVariable("attachedObject") === "hei_prop_heist_wooden_box" && player.boxwaterfront) jobOpen.stopBringingBox(player);
         }
+        if (player.job === 8) {
+            let jobOpen = require("../modules/jobs/grape_collector/index.js");
+            if (player.getVariable("attachedObject") === "prop_fruit_basket" && player.jobgrapecollectorfloor > -1) jobOpen.stopBringingBox(player);
+        }
         player.utils.putObject();
         player.utils.info(`Вы уронили груз!`);
     },

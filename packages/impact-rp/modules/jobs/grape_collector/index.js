@@ -1,1 +1,1 @@
-require('./grape_collector');
+require('./grape_collector.js');

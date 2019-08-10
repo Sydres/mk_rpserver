@@ -32,7 +32,17 @@ var authenticationApp = new Vue({
                     list[1].classList.add("select-block-active");
 
                     document.getElementsByClassName("login")[0].style.display = "none";
-                    document.getElementsByClassName("registration")[0].style.display = "block";
+
+                    $(".select").css('display', 'none');
+                      $(".screen-attention").css('display', 'block');
+
+                    $("body").keyup(function() {
+                        document.getElementsByClassName("registration")[0].style.display = "block";
+                        $(".select").css('display', 'inline-flex');
+                        $(".screen-attention").css('display', 'none');
+                    });
+
+
 
                     $(".authentication .registration .name").focus();
                     authenticationApp.$data.curselector = 1;
@@ -134,12 +144,13 @@ function hideWelcomeScreen() {
     $(".logo").fadeOut(1000);
     setTimeout(function() {
         $(".welcome").hide();
-        showWelcomeTest();
+        //showWelcomeTest();
+        showAuthenticationScreen();
 
     }, 1500);
 }
 
-function showWelcomeTest() {
+/*function showWelcomeTest() {
     $("#alphaTest").fadeIn(100, function() {
         authenticationApp.$data.showwelcometest = 0;
         $("body").click(function() {
@@ -154,7 +165,7 @@ function showWelcomeTest() {
             showAuthenticationScreen();
         });
     });;
-}
+}*/
 
 function showAuthenticationScreen() {
     if (authenticationApp.$data.showwelcometest) return;

@@ -757,13 +757,14 @@
             </div>
 
             <div class="authentication" style="display: none">
+              <img id="bg-auth" src="img/authentication/tabs2.png">
                 <div class="left-block">
                     <img src="img/authentication/logo.png">
-                    <h3>Добро пожаловать на</h3>
+                    <!--h3>Добро пожаловать на</h3>
                     <h1>Impact</h1>
                     <h2>Role Play</h2>
 
-                    <div class="description"><a>Мы - Role Play сообщество и проект в GTA 5, базирующийся на платформе RAGE Multiplayer, позволяющей добавлять различные моды в виде кастомных автомобилей, скриптов и трейнеров в игровой процесс, в отличие от привычного нам GTA 5 Online</a></div>
+                    <div class="description"><a>Мы - Role Play сообщество и проект в GTA 5, базирующийся на платформе RAGE Multiplayer, позволяющей добавлять различные моды в виде кастомных автомобилей, скриптов и трейнеров в игровой процесс, в отличие от привычного нам GTA 5 Online</a></div-->
                 </div>
 
                 <div class="right-block">
@@ -819,26 +820,38 @@
                             <div class="button" onclick="regAccountHandler(-1)"><a>Зарегистрироваться</a></div>
                         </div>
 
+                        <div class="screen-attention" style="display: none">
+
+                            <div class="box-header blink" style='font-size:40px!IMPORTANT;'><a>ВНИМАНИЕ!</a></div>
+
+                            <div class="input-description"><a>Прежде, чем Вы СВЕРНЁТЕ ИГРУ, поставьте "ОКОННЫЙ" либо  "ОКОННЫЙ БЕЗ РАМКИ" тип экрана.<br> <span class='blink'>(Настройки -> Графика -> Тип экрана)<span></a></div>
+
+                            <div class="exit-button">
+
+                                <a>Нажмите любую кнопку</a>
+                            </div>
+                        </div>
+
                         <div class="recovery" style="display: none">
 
-                            <div class="box-header"><a>Восстановление доступа<br>с помощью электронной почты</a></div>
+                            <div class="box-header"><a>Восстановление аккаунта</a></div>
 
                             <input type="text" class="loginOrEmail" required="required" spellcheck="false">
                             <input type="text" class="code" placeholder="Код" style="display: none" required="required" spellcheck="false">
                             <input type="text" class="password" placeholder="Пароль" style="display: none" required="required" spellcheck="false">
                             <input type="text" class="password2" placeholder="Подтвердить пароль" style="display: none" required="required" spellcheck="false">
 
-                            <div class="input-description"><a>Введите ваш адрес электронной<br>на который был зарегистрирован Ваш аккаунт.</a></div>
+                            <div class="input-description"><a>Введите адрес электронной почты,<br>на которую был зарегистрирован Ваш аккаунт.</a></div>
                             <div class="send-button" onclick="recoveryAccountHandler()"><a>Отправить</a></div>
-                            <div class="send-description">
+                            <!--div class="send-description">
                                 <a>На этой странице вы сможете отправить письмо на свою электронную почту - которая привязана к вашему игровому аккаунту на сервере GTA V Impact Role Play. После отправки вы получите инструкцию о ворсстановлении
                                     доступа и пароля вашего аккаунта и игрового персонажа. Пожалуйста будьте внимательны при вводе своего электронного адреса.
                                 </a>
-                            </div>
+                            </div-->
 
                             <div class="exit-button">
-                                <img class="centred-img" src="img/authentication/gmail.png">
-                                <a v-on:click="hideRecoveryScreen()">Выход</a>
+                                <!--img class="centred-img" src="img/authentication/gmail.png"-->
+                                <a v-on:click="hideRecoveryScreen()">Вернуться к панеле входа</a>
                             </div>
                         </div>
 

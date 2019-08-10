@@ -24,7 +24,7 @@
     text-align: center;
     line-height: 44px;
     font-size: 1.875em;
-    background-color: #0e8540;
+    background-color: #673AB7;
     height: 44px;
     font-weight: 600;
     margin-top: 42px;
@@ -55,7 +55,8 @@
     text-align: center;
     font-size: 1.125em;
     font-weight: 600;
-    border-left: 3px solid #0e8540;
+    background: green;
+    /*border-left: 3px solid #0e8540;*/
 }
 
 .choiceMenu .center .button_base.cancel {
@@ -64,7 +65,8 @@
     text-align: center;
     font-size: 1.125em;
     font-weight: 600;
-    border-left: 3px solid #ca0606;
+    background: #9a0c0c;
+    /*border-left: 3px solid #ca0606;*/
 }
 
 .choiceMenu .center .button_base.agree:hover,

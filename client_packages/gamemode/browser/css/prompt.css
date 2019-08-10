@@ -15,16 +15,16 @@
 
 #prompt .header {
     height: 41px;
-    background-color: #0b8d43;
+    background-color: #570b8d;
     line-height: 41px;
     padding-left: 12px;
     text-transform: uppercase;
     font-weight: bold;
 
-    background-image: -moz-linear-gradient(180deg, rgb(17, 130, 65) 0%, rgb(0, 163, 70) 100%);
+    /*background-image: -moz-linear-gradient(180deg, rgb(17, 130, 65) 0%, rgb(0, 163, 70) 100%);
     background-image: -webkit-linear-gradient(180deg, rgb(17, 130, 65) 0%, rgb(0, 163, 70) 100%);
     background-image: -ms-linear-gradient(180deg, rgb(17, 130, 65) 0%, rgb(0, 163, 70) 100%);
-    /* position: absolute;
+     position: absolute;
     left: 11px;
     top: 107px;
     width: 420px;

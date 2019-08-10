@@ -500,8 +500,8 @@ exports = (menu) => {
         mp.game.player.setHealthRechargeMultiplier(0); //Disable regeneration
         mp.events.call("chat.enable", true);
 
-        mp.events.call("prompt.show", `Нажмите <span>ALT</span>, чтобы вызвать курсор`);
-        
+
+
         mp.events.call("inventory.enable", true);
         mp.events.call("playerMenu.enable", true);
         mp.events.call("adminPanel.enable", true);
@@ -516,7 +516,9 @@ exports = (menu) => {
         mp.events.call(`effect`, 'MP_job_load', 1);
         setCursor(false);
 
-        menu.execute(`userInterface.__vue__.$data.render=true;`)
+        menu.execute(`userInterface.__vue__.$data.render=true;`);
+
+        mp.events.call("prompt.show", `Нажмите <span>ALT</span>, чтобы вызвать курсор`);
 
         // ALT
         mp.keys.bind(18, false, () => {
@@ -795,6 +797,23 @@ exports = (menu) => {
                 dict: "anim@heists@box_carry@",
                 name: "idle",
                 speed: 8,
+                flag: 49
+            }
+        },
+        "prop_fruit_basket": {
+            offset: {
+                x: 0,
+                y: 0,
+                z: 0,
+                rX: -85.0,
+                rY: 0,
+                rZ: 20.0
+            },
+            bone: 44,
+            anim: {
+                dict: "anim@mp_snowball",
+                name: "idle",
+                speed: 20,
                 flag: 49
             }
         },
