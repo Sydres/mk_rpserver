@@ -393,7 +393,7 @@ function changeGrapeCollectorClothes(player){
             if (player.vehicle) return;
             player.utils.success("Вы начали рабочий день!");
             player.jobubildercloth = true;
-            player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1861.56, 2088, 140.86 ]);
+            player.call("createJobGrapeCollectorMarkBlip", [ false, false, -1861.56, 2088, 140.86 ]);
             player.body.clearItems();
             player.body.denyUpdateView = true;
             if (player.sex === 1) {
