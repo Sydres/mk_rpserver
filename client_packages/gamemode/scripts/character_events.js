@@ -802,9 +802,9 @@ exports = (menu) => {
         },
         "prop_fruit_basket": {
             offset: {
-                x: 0,
-                y: 0,
-                z: 0,
+                x: 0.2,
+                y: -0.37,
+                z: 0.1,
                 rX: -85.0,
                 rY: 0,
                 rZ: 20.0

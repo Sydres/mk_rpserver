@@ -25,15 +25,19 @@ let marker;
 
 mp.events.add('createJobGrapeCollectorRoom', (type) => {
     try {
-        if (type === false)
-            marker.destroy();
-        else
+        if (type === false){
+          marker.destroy();
+        }
+
+        else{
             marker = mp.markers.new(20, new mp.Vector3(-1853.21, 2087.8, 140), 1, {
                 visible: true,
                 color: [255, 0, 0, 180],
                 rotation: 180
             });
-    } catch (err) {
+    }
+  }
+  catch (err) {
         mp.game.graphics.notify("~r~" + err);
         return;
     }
