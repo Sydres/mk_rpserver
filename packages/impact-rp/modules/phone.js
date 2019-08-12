@@ -54,8 +54,8 @@ global.initPlayerTelephone = function(player) {
             break;
 
         case 3:
-            let policeOpen = require("./factions/police/police.js");
-          tablet.police.addCall(player);
+            //let police.addCall = require("./factions/police/police.js");
+            mp.events.call("police.addCall", player, args.join("Помогите!"));
             break;
 
         default: player.utils.error("Абонент временно недоступен!");
