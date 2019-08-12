@@ -430,7 +430,7 @@ function changeGrapeCollectorClothes(player){
             if (player.vehicle) return;
             player.utils.success("Вы начали рабочий день!");
             player.jobubildercloth = true;
-            player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1877, 2094.7, 140.3 ]); // Колшейп корзины
+            player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1877, 2094.7, 140.3 ]);
 
             mp.labels.new("Взять корзину", new mp.Vector3(-1861, 2088.33, 142.84),
                 {
@@ -451,11 +451,11 @@ function changeGrapeCollectorClothes(player){
               player.setProp(13, 0, 2); //- Голова ( наушники )
             } else {
               // Одежда женская
-              player.setClothes(3, 60, 0, 2); // (3, 60)
-              player.setClothes(4, 45, 0, 2); // (4, 45)
-              player.setClothes(6, 26, 0, 2); // (6, 26)
-              player.setClothes(8, 72, 1, 2); // (8, 72)
-              player.setClothes(11, 1, 0, 2); // (11, 1)
+              player.setClothes(3, 85, 0, 2); 
+              player.setClothes(4, 45, 0, 2);
+              player.setClothes(6, 26, 0, 2);
+              player.setClothes(8, 30, 1, 2);
+              player.setClothes(11, 120, 0, 2);
               // player.setProp(0, 0, 0); - Голова ( наушники )
             }
         }
@@ -571,7 +571,7 @@ function putBasketGrapeCollector(player){
                       drawDistance: 20,
                   });
 
-              player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1877, 2094.7, 140.3 ] ); // Колшейп корзины
+              player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1877, 2094.7, 140.3 ] );
               player.jobgrapecollectorfloor = -1;
             }
           else{
