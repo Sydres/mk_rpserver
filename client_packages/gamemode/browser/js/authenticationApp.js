@@ -191,3 +191,34 @@ function showRecoveryResultScreen(error, message, button) {
         $(".recovery-result").fadeIn(250);
     });
 }
+
+$(document).ready(function(){
+
+function slides(){
+
+  	$('#bg-auth2').fadeOut(1000);
+  	$('#bg-auth2').css('z-index', '1');
+  	$('#bg-auth1').css('z-index', '2');
+  	$('#bg-auth1').fadeIn(1000);
+  	$('#bg-auth1').animate({left: "-35%"}, 5000);
+  	$('#bg-auth2').animate({left: "-15%"}, 10);
+
+
+    setTimeout(function(){
+
+        	$('#bg-auth1').fadeOut(1000);
+        	$('#bg-auth1').css('z-index', '1');
+        	$('#bg-auth2').css('z-index', '2');
+        	$('#bg-auth2').fadeIn(1000);
+        	$('#bg-auth2').animate({left: "-35%"}, 5000);
+        	$('#bg-auth1').animate({left: "-15%"}, 10);
+
+    },5000);
+
+
+  }
+
+slides();
+setInterval(slides, 10000);
+
+});

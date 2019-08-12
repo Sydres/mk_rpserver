@@ -25,19 +25,15 @@ let marker;
 
 mp.events.add('createJobGrapeCollectorRoom', (type) => {
     try {
-        if (type === false){
-          marker.destroy();
-        }
-
-        else{
+        if (type === false)
+            marker.destroy();
+        else
             marker = mp.markers.new(20, new mp.Vector3(-1853.21, 2087.8, 140), 1, {
                 visible: true,
                 color: [255, 0, 0, 180],
                 rotation: 180
             });
-    }
-  }
-  catch (err) {
+    } catch (err) {
         mp.game.graphics.notify("~r~" + err);
         return;
     }
@@ -113,23 +109,12 @@ mp.events.add('createJobGrapeCollectorMarkBlip', (type, type2, posx, posy, posz,
             JobGrapeCollector.marker = mp.markers.new(1, new mp.Vector3(posx, posy, posz - 1.2), 1, {
                 visible: true,
                 dimension: 0,
-                color: [0, 255, 0, 180]
+                color: [255, 0, 0, 180]
             });
             JobGrapeCollector.blip = mp.blips.new(1, new mp.Vector3(posx, posy, posz), {
                 alpha: 255,
                 color: 38
             });
-        }
-        else{
-          JobGrapeCollector.marker = mp.markers.new(1, new mp.Vector3(posx, posy, posz - 1.2), 1, {
-              visible: true,
-              dimension: 0,
-              color: [255, 0, 0, 180]
-          });
-          JobGrapeCollector.blip = mp.blips.new(1, new mp.Vector3(posx, posy, posz), {
-              alpha: 255,
-              color: 38
-          });
         }
     } catch (err) {
         mp.game.graphics.notify("~r~" + err);

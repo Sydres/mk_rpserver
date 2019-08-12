@@ -40,7 +40,7 @@ module.exports = {
         if (!reg.test(data.characterName)) return showRegError(player, `Имя ${characterName} некорректно!`);
         if (data.skills.length != 7) return showRegError(player, `Неверное количество умений!`);
         var skillsCount = 0;
-        var startMoney = 250;
+        var startMoney = 500;
         data.skills.forEach((skill) => {
             skillsCount += skill;
         });
@@ -101,8 +101,10 @@ module.exports = {
                     }
                 ];
 
-                const pos = SpawnInfo.user_spawn[getRandom(0, SpawnInfo.user_spawn.length)];
+                const pos = SpawnInfo.user_spawn[getRandom(0, SpawnInfo.user_spawn.length-1)];
+
                 const faceFeatures = data.faceFeatures.map((faceFeature) => Math.round(faceFeature * 100) / 100);
+
                 let new_number = phoneOpen.getPhoneNumber();
                 var query = `INSERT INTO characters (name,regIp,sex,lastIp,mother,father,shapeMix,skinMix,
                     eyeColor,hair,hairColor,faceFeatures,skills,accountId,x,y,z,h,money,phone) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;

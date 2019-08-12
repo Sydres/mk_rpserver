@@ -499,10 +499,10 @@
     color: #673AA3;
 }
 
-#authenticationApp #bg-auth {
+#authenticationApp .bg-auth {
     width: 61%;
     top: -25%;
-    left: -30%;
+    left: -15%;
     position: absolute;
 }
 
@@ -659,6 +659,7 @@
 #authenticationApp .pincode input, .confirmEmail input {
     width: 265px;
     height: 40px;
+    border-radius: 20px;
     border: 2px solid #c7cccd;
     text-align: center;
     color: #313131;

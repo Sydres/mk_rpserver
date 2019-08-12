@@ -65,7 +65,7 @@ const JobGrapeCollector = {
 mp.blips.new(285, new mp.Vector3(-1853.86, 2093.4, 140.2), { color: 61, name: 'Виноградник', scale: 1, shortRange: true}); // Блип на карте
 let jobcolshape = mp.colshapes.newSphere(-1855, 2092.3, 140.32, 1.5); // Колшейп для устройства на работу
 let jobclothcolshape = mp.colshapes.newSphere(-1853.21, 2087.8, 140, 1.0); // Колшейп для раздевалки
-let jobstorage_grape_itemcolshape = mp.colshapes.newSphere(-1861.56, 2088, 140.86, 1.0); // Колшейп хранилища
+let jobstorage_grape_itemcolshape = mp.colshapes.newSphere(-1877, 2094.7, 140.3, 1.0); // Колшейп корзины
 let grape_storage = mp.colshapes.newSphere(-1880.14, 2094.97,140.44, 1.0); // Колшейп точки сброса
 
 
@@ -100,8 +100,40 @@ mp.events.add("playerStartEnterVehicle", function playerStartEnterVehicleHandler
 });
 
 function stopBringingBasket(player) {
-  player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1855.48, 2091.78,140.36 ] );
-  player.jobgrapecollectorfloor = -1;
+
+  //player.jobgrapecollectorfloor = getRandomNumber(0, 17);
+  //player.notify("Соберите виноград с ~g~ " + JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].floor + "-го ~w~яруса!");
+  //player.call("createJobGrapeCollectorMarkBlip", [ true, true, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].x, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].y, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].z ]);
+  //player.jobgrapecollectorfloor = JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].floor;
+
+  if (JobGrapeCollector.inside_basket == 5) {
+
+    player.jobgrapecollectorfloor = getRandomNumber(0, 17);
+    player.notify("Соберите виноград с ~g~ " + JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].floor + "-го ~w~яруса!");
+    player.call("createJobGrapeCollectorMarkBlip", [ true, true, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].x, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].y, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].z ]);
+
+  }
+
+if(JobGrapeCollector.inside_basket > 0 ){
+  JobGrapeCollector.inside_basket = 0;
+  JobGrapeCollector.money = 0;
+
+  player.utils.putObject();
+
+  player.utils.takeObject("prop_fruit_basket");
+
+  player.utils.warning(`Вы рассыпали весь виноград! Корзина пуста.`);
+}else{
+
+  player.utils.putObject();
+
+  player.utils.takeObject("prop_fruit_basket");
+
+  player.utils.info(`Не прыгайте, иначе можете рассыпать виноград, когда заполните корзину!`);
+}
+
+
+
 }
 module.exports.stopBringingBasket = stopBringingBasket;
 
@@ -140,7 +172,12 @@ mp.events.add("playerEnterColshape", function onPlayerEnterColShape(player, shap
 
         else if (JobGrapeCollector.out_grapes_colshapes.includes(shape) && player.job === 11 && player.jobubildercloth == true) {
             let num = JobGrapeCollector.out_grapes_colshapes.indexOf(shape);
-            if (num == player.jobgrapecollectorfloor) putBasketGrapeCollector(player);
+            if (num == player.jobgrapecollectorfloor){
+              putBasketGrapeCollector(player);
+              setTimeout(() => {
+
+              }, 10000);
+            }
         }
     }
     catch (err){
@@ -393,7 +430,15 @@ function changeGrapeCollectorClothes(player){
             if (player.vehicle) return;
             player.utils.success("Вы начали рабочий день!");
             player.jobubildercloth = true;
-            player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1861.56, 2088, 140.86 ]);
+            player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1877, 2094.7, 140.3 ]);
+
+            mp.labels.new("Взять корзину", new mp.Vector3(-1861, 2088.33, 142.84),
+                {
+                    los: true,
+                    font: 2,
+                    drawDistance: 20,
+                });
+
             player.body.clearItems();
             player.body.denyUpdateView = true;
             if (player.sex === 1) {
@@ -443,7 +488,14 @@ function leaveBasketGrapeCollector (player){
       JobGrapeCollector.inside_basket = 0;
       JobGrapeCollector.money = 0;
 
-      player.call("createJobGrapeCollectorMarkBlip", [ false, false, -1861, 2088.33, 140.84 ] );
+      player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1861, 2088.33, 140.84 ] );
+
+      mp.labels.new("Взять корзину", new mp.Vector3(-1861, 2088.33, 142.84),
+          {
+              los: true,
+              font: 2,
+              drawDistance: 20,
+          });
 
       player.jobgrapecollectorfloor = -1;
 
@@ -461,11 +513,19 @@ function takeBasketGrapeCollector(player){
     try
     {
         if (player.jobgrapecollectorfloor == -1) {
+
+          player.playAnimation('anim@mp_snowball', 'pickup_snowball', 1, 15);
+
+          setTimeout(() => {
+
+
           //player.utils.putObject();
           player.utils.takeObject("prop_fruit_basket");
           player.jobgrapecollectorfloor = getRandomNumber(0, 17);
           player.notify("Соберите виноград с ~r~ " + JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].floor + "-го ~w~яруса!");
           player.call("createJobGrapeCollectorMarkBlip", [ true, true, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].x, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].y, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].z ]);
+
+          }, 2000);
         }
         else {
             player.utils.error("Вы ещё не заполнили эту корзину!");
@@ -483,19 +543,43 @@ function putBasketGrapeCollector(player){
       JobGrapeCollector.money += Math.round(mp.economy["build_salary"].value * JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].xs);
         //player.utils.putObject();
         if(JobGrapeCollector.inside_basket < 5){
-          JobGrapeCollector.inside_basket += 1;
-          var percent = Math.round(100 - (100 - 20 * JobGrapeCollector.inside_basket));
-          player.notify("Корзина заполнена на  ~g~ " + percent + "%");
-          if(JobGrapeCollector.inside_basket == 5){
-            player.notify("Отнесите виноград на ~g~ СКЛАД ~w~!");
-            player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1880.14, 2094.97,140.44 ] );
-            player.jobgrapecollectorfloor = -1;
+
+          player.playAnimation('anim@mp_snowball', 'pickup_snowball', 1, 15);
+
+          setTimeout(() => {
+            player.playAnimation('anim@mp_snowball', 'pickup_snowball', 1, 15);
+          }, 2000);
+
+          setTimeout(() => {
+            player.playAnimation('anim@mp_snowball', 'pickup_snowball', 1, 15);
+          }, 4000);
+
+          setTimeout(() => {
+            player.stopAnimation()
+            JobGrapeCollector.inside_basket += 1;
+            var percent = Math.round(100 - (100 - 20 * JobGrapeCollector.inside_basket));
+            player.notify("Корзина заполнена на  ~g~ " + percent + "%");
+
+
+            if(JobGrapeCollector.inside_basket == 5){
+              player.notify("Отнесите виноград на ~g~ СКЛАД ~w~!");
+
+              mp.labels.new("СКЛАД", new mp.Vector3(-1880.14, 2094.97,142.44),
+                  {
+                      los: true,
+                      font: 2,
+                      drawDistance: 20,
+                  });
+
+              player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1877, 2094.7, 140.3 ] );
+              player.jobgrapecollectorfloor = -1;
+            }
+          else{
+            player.jobgrapecollectorfloor = getRandomNumber(0, 17);
+            player.notify("Соберите виноград с ~g~ " + JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].floor + "-го ~w~яруса!");
+            player.call("createJobGrapeCollectorMarkBlip", [ true, true, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].x, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].y, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].z ]);
           }
-        else{
-          player.jobgrapecollectorfloor = getRandomNumber(0, 17);
-          player.notify("Соберите виноград с ~r~ " + JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].floor + "-го ~w~яруса!");
-          player.call("createJobGrapeCollectorMarkBlip", [ true, true, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].x, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].y, JobGrapeCollector.out_grapes_positions[player.jobgrapecollectorfloor].z ]);
-        }
+        }, 6000);
       }
 
 
