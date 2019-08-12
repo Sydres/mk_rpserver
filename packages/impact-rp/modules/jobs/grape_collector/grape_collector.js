@@ -451,11 +451,11 @@ function changeGrapeCollectorClothes(player){
               player.setProp(13, 0, 2); //- Голова ( наушники )
             } else {
               // Одежда женская
-              player.setClothes(3, 62, 0, 2);
-              player.setClothes(4, 35, 0, 2);
-              player.setClothes(6, 26, 0, 2);
-              player.setClothes(8, 36, 1, 2);
-              player.setClothes(11, 50, 0, 2);
+              player.setClothes(3, 60, 0, 2); // (3, 60)
+              player.setClothes(4, 45, 0, 2); // (4, 45)
+              player.setClothes(6, 26, 0, 2); // (6, 26)
+              player.setClothes(8, 72, 1, 2); // (8, 72)
+              player.setClothes(11, 1, 0, 2); // (11, 1)
               // player.setProp(0, 0, 0); - Голова ( наушники )
             }
         }
