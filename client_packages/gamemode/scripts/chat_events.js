@@ -28,7 +28,10 @@ exports = (menu) => {
 
     mp.events.add("setChatActive", (enable) => {
         mp.chatActive = enable;
-        mp.events.call("prompt.show", `Нажмите <span>TAB</span>, чтоб изменить режим чата`);
+        if(enable){
+          mp.events.call("prompt.show", `Нажмите <span>TAB</span>, чтоб изменить режим чата`);
+        }
+
     });
 }
 

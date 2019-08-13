@@ -7,5 +7,6 @@
 	"announce" : true,
 	"csharp" : "disabled",
 	"language" : "ru",
+	"voice-chat" : true,
 	"port": 3305
 }

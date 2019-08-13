@@ -257,7 +257,7 @@ module.exports = {
 
     "item.split": (player, data) => {
         // debug(`item.split: ${player.name} ${data}`);
-        return player.utils.error(`Разделение выключено!`);
+        //return player.utils.error(`Разделение выключено!`);
         data = JSON.parse(data);
         var item = player.inventory.getItem(data[0]);
 

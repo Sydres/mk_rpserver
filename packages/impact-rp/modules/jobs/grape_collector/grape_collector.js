@@ -451,7 +451,7 @@ function changeGrapeCollectorClothes(player){
               player.setProp(13, 0, 2); //- Голова ( наушники )
             } else {
               // Одежда женская
-              player.setClothes(3, 85, 0, 2); 
+              player.setClothes(3, 85, 0, 2);
               player.setClothes(4, 45, 0, 2);
               player.setClothes(6, 26, 0, 2);
               player.setClothes(8, 30, 1, 2);
@@ -488,7 +488,7 @@ function leaveBasketGrapeCollector (player){
       JobGrapeCollector.inside_basket = 0;
       JobGrapeCollector.money = 0;
 
-      player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1861, 2088.33, 140.84 ] );
+      player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1877, 2094.7, 140.3 ] );
 
       mp.labels.new("Взять корзину", new mp.Vector3(-1861, 2088.33, 142.84),
           {
@@ -571,7 +571,7 @@ function putBasketGrapeCollector(player){
                       drawDistance: 20,
                   });
 
-              player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1877, 2094.7, 140.3 ] );
+              player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1880.14, 2094.97,140.44 ] );
               player.jobgrapecollectorfloor = -1;
             }
           else{

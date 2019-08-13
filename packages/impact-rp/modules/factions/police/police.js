@@ -29,5 +29,8 @@ module.exports.recallPolice = recallPolice;
 
     delete rec.policeCallTime;
     player.utils.success(`Вызов принят!`);
+
+    mp.events.call("accept.police.call", rec.position);
+
     rec.utils.success(`${player.name} принял Ваш вызов!`);
 },

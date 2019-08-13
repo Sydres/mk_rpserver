@@ -34,7 +34,7 @@ exports = (menu) => {
         camera.setRot(rx, ry, rz, 2);
         camera.setFov(viewangle);
         camera.setActive(true);
-        
+
         const vehPosition = new mp.Vector3(-43.9, -1096.6, 26.1);
 
         cameraRotator.start(camera, vehPosition, vehPosition, new mp.Vector3(-3.0, 3.5, 0.5), 180);
@@ -54,6 +54,8 @@ exports = (menu) => {
         menu.execute(`mp.events.call('autoSaloon', { dim: ${data.dim}, event: 'dim' })`);
         createCam(-48.1, -1099.7, 26.5, 0, 0, 308, 60);
         mp.game.ui.displayRadar(false);
+
+        mp.events.call("prompt.show", `Нажмите <span>ALT</span>, чтобы вызвать курсор`);
     });
 
     mp.events.add('item.fixCarByKeys', (sqlId) => {
@@ -84,7 +86,7 @@ exports = (menu) => {
 
     mp.events.add('autoSaloon.showCar', (car, dim) => {
         let carData = JSON.parse(car);
-        
+
         if(auto.entity !== null) {
             auto.entity.model = mp.game.joaat(carData.model);
             auto.entity.position = new mp.Vector3(-43.9, -1096.6, 26.1);
@@ -108,15 +110,15 @@ exports = (menu) => {
         }
 
         cameraRotator.pause(false);
-        
+
         let paramsCar = {
-            maxSpeed: mp.game.vehicle.getVehicleModelMaxSpeed(mp.game.joaat(carData.model)), 
-            braking: (mp.game.vehicle.getVehicleModelMaxBraking(mp.game.joaat(carData.model)) * 100).toFixed(2), 
-            acceleration: (mp.game.vehicle.getVehicleModelAcceleration(mp.game.joaat(carData.model)) * 100).toFixed(2), 
+            maxSpeed: mp.game.vehicle.getVehicleModelMaxSpeed(mp.game.joaat(carData.model)),
+            braking: (mp.game.vehicle.getVehicleModelMaxBraking(mp.game.joaat(carData.model)) * 100).toFixed(2),
+            acceleration: (mp.game.vehicle.getVehicleModelAcceleration(mp.game.joaat(carData.model)) * 100).toFixed(2),
             controllability: mp.game.vehicle.getVehicleModelMaxTraction(mp.game.joaat(carData.model)).toFixed(2),
             //classCar: auto.entity.getClass(),
             maxPassagersCar: mp.game.vehicle.getVehicleModelMaxNumberOfPassengers(mp.game.joaat(carData.model)),
-            maxSpeedKm: ((mp.game.vehicle.getVehicleModelMaxSpeed(mp.game.joaat(carData.model)) * 3.6).toFixed(0)), 
+            maxSpeedKm: ((mp.game.vehicle.getVehicleModelMaxSpeed(mp.game.joaat(carData.model)) * 3.6).toFixed(0)),
         }
 
         menu.execute(`mp.events.call('autoSaloon', { selectCarParam: ${JSON.stringify(paramsCar)}, event: 'selectCarParam' })`);

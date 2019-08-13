@@ -20,7 +20,7 @@ module.exports = {
 
             //require('../modules/player_blips/index.js');
 
-            require('../modules/voice/index.js');
+            //require('../modules/voice/index.js');
 
             // require('../modules/routep.js').Init();
             require('../modules/jobs/trash/trash.js').Init();

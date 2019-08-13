@@ -18,6 +18,7 @@ mp.events.add('guiReady', () => {
                 require('gamemode/scripts/player_location.js');
                 require('gamemode/scripts/passenger.js');
                 //require('gamemode/scripts/voicechat.js');
+                require('gamemode/scripts/voice.js')(menu);
                 require('gamemode/scripts/browser.js')(menu);
                 require('gamemode/scripts/account_events.js')(menu);
                 require('gamemode/scripts/character_events.js')(menu);
@@ -58,6 +59,9 @@ mp.events.add('guiReady', () => {
                 require('gamemode/scripts/jobs/autoroober/index.js');
                 require('gamemode/scripts/jobs/bus/bus_control.js');
                 require('gamemode/scripts/jobs/taxi/index.js');
+
+                require('gamemode/scripts/factions/police/index.js');
+
                 require('gamemode/scripts/jobs/gopostal/gopostal-client.js');
                 require('gamemode/scripts/jobs/smuggling/index.js');
                 require('gamemode/scripts/jobs/trucker/index.js');

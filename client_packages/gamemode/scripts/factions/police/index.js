@@ -67,16 +67,16 @@ mp.events.add('take.police.order', (name) => {
   mp.events.callRemote('take.police.order', name);
 });
 
-mp.events.add('accept.police.order', (pos) => {
-    PoliceUI.blip = mp.blips.new(280, pos, { alpha: 255, color: 5, scale: 0.9, name: "Клиент" });
+mp.events.add('accept.police.call', (pos) => {
+    PoliceUI.blip = mp.blips.new(280, pos, { alpha: 255, color: 5, scale: 0.9, name: "Свидетель" });
     PoliceUI.blip.setRoute(true);
     PoliceUI.blip.setRouteColour(5);
     PoliceUI.colshape = mp.colshapes.newSphere(pos.x, pos.y, pos.z, 6);
     PoliceUI.marker = mp.markers.new(1, new mp.Vector3(pos.x, pos.y, pos.z - 1.5), 12, { visible: true, dimension: 0, color: [255, 0, 0, 40] });
-    if (CEF) {
+    /*if (CEF) {
        CEF.execute(`app.setselect();`);
        CEF.execute(`app.startTime(${0}, "${getZoneName(pos)}");`);
-    }
+    }*/
 });
 
 mp.events.add('destroy.police.colshape', () => {
