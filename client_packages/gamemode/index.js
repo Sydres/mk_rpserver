@@ -11,7 +11,8 @@ mp.events.add('guiReady', () => {
         mp.events.add('browserDomReady', (browser) => {
             if (browser == menu) {
                 mp.gui.execute("window.location = 'package://gamemode/chat/index.html'");
-                //mp.discord.update('Union Role Play', 'unionrp.ru');
+                
+                mp.discord.update('Impact RP', 'impact-rp.com');
                 // Init events.
                 require('gamemode/scripts/events.js')(menu);
                 require('gamemode/scripts/notifs.js');
@@ -55,6 +56,7 @@ mp.events.add('guiReady', () => {
                 require('gamemode/scripts/jobs/builder/index.js');
 
                 require('gamemode/scripts/jobs/grape_collector/index.js');
+                require('gamemode/scripts/jobs/orange_collector/index.js');
 
                 require('gamemode/scripts/jobs/autoroober/index.js');
                 require('gamemode/scripts/jobs/bus/bus_control.js');

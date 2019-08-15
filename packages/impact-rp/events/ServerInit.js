@@ -28,7 +28,10 @@ module.exports = {
             require('../modules/jobs/pizza/index.js');
             require('../modules/jobs/waterfront/index.js');
             require('../modules/jobs/builder/index.js');
+            
             require('../modules/jobs/grape_collector/index.js');
+            require('../modules/jobs/orange_collector/index.js');
+
             require('../modules/jobs/autoroober/index.js');
             require('../modules/jobs/taxi/index.js');
             require('../modules/jobs/smuggling/index.js');

@@ -2,6 +2,10 @@
 
 const JobGrapeCollector = {
     inside_basket: 0,
+    joinjob: mp.colshapes.newSphere(-1855, 2092.3, 140.32, 1.0),
+    cloth_col: mp.colshapes.newSphere(-1853.21, 2087.8, 140, 1.0),
+    basket_col: mp.colshapes.newSphere(-1877, 2094.7, 140.3, 1.0),
+    storage_col: mp.colshapes.newSphere(-1880.14, 2094.97,140.44, 1.0),
     storage: 1000,
     money: 0,
     grapes: [10, 15],
@@ -63,10 +67,10 @@ const JobGrapeCollector = {
 };
 
 mp.blips.new(285, new mp.Vector3(-1853.86, 2093.4, 140.2), { color: 61, name: 'Виноградник', scale: 1, shortRange: true}); // Блип на карте
-let jobcolshape = mp.colshapes.newSphere(-1855, 2092.3, 140.32, 1.5); // Колшейп для устройства на работу
-let jobclothcolshape = mp.colshapes.newSphere(-1853.21, 2087.8, 140, 1.0); // Колшейп для раздевалки
-let jobstorage_grape_itemcolshape = mp.colshapes.newSphere(-1877, 2094.7, 140.3, 1.0); // Колшейп корзины
-let grape_storage = mp.colshapes.newSphere(-1880.14, 2094.97,140.44, 1.0); // Колшейп точки сброса
+//let jobcolshape = mp.colshapes.newSphere(-1855, 2092.3, 140.32, 1.5); // Колшейп для устройства на работу
+//let jobclothcolshape = mp.colshapes.newSphere(-1853.21, 2087.8, 140, 1.0); // Колшейп для раздевалки
+//let jobstorage_grape_itemcolshape = mp.colshapes.newSphere(-1877, 2094.7, 140.3, 1.0); // Колшейп корзины
+//let grape_storage = mp.colshapes.newSphere(-1880.14, 2094.97,140.44, 1.0); // Колшейп точки сброса
 
 
 mp.events.add("playerDeath", function playerDeathHandler(player, reason, killer) {
@@ -140,21 +144,17 @@ module.exports.stopBringingBasket = stopBringingBasket;
 mp.events.add("playerEnterColshape", function onPlayerEnterColShape(player, shape) {
     try
     {
-        if (shape == jobcolshape && !player.vehicle) {
+        if (shape == JobGrapeCollector.joinjob && !player.vehicle) {
             if (player.job === 11){
 
               player.call("setGrapeJobStatus", [ true ]);
-
-                player.setVariable("keydownevariable", true);
               }
             else{
 
               player.call("setGrapeJobStatus", [ false ]);
-
-                player.setVariable("keydownevariable", false);
               }
         }
-        if (shape == jobclothcolshape && player.job === 11) {
+        if (shape == JobGrapeCollector.cloth_col && player.job === 11) {
           if (player.jobgrapecollectorfloor != -1) {
               player.utils.error("Сначала отнесите полную корзину на склад!");
               return;
@@ -166,9 +166,9 @@ mp.events.add("playerEnterColshape", function onPlayerEnterColShape(player, shap
           }
           changeGrapeCollectorClothes(player);
         }
-        else if (shape == jobstorage_grape_itemcolshape && player.jobubildercloth == true && player.job === 11) takeBasketGrapeCollector(player);
+        else if (shape == JobGrapeCollector.basket_col && player.jobubildercloth == true && player.job === 11) takeBasketGrapeCollector(player);
 
-          else if (shape == grape_storage && player.jobubildercloth == true && player.job === 11) leaveBasketGrapeCollector(player);
+          else if (shape == JobGrapeCollector.storage_col && player.jobubildercloth == true && player.job === 11) leaveBasketGrapeCollector(player);
 
         else if (JobGrapeCollector.out_grapes_colshapes.includes(shape) && player.job === 11 && player.jobubildercloth == true) {
             let num = JobGrapeCollector.out_grapes_colshapes.indexOf(shape);
@@ -187,7 +187,7 @@ mp.events.add("playerEnterColshape", function onPlayerEnterColShape(player, shap
 });
 
 mp.events.add("playerExitColshape", function onPlayerExitColShape(player, shape) {
-    if (shape === jobcolshape) player.setVariable("keydownevariable", undefined);
+    if (shape === JobGrapeCollector.joinjob) player.setVariable("keydownevariable", undefined);
 });
 
 mp.events.add("job.grapecollector.agree", (player) => {

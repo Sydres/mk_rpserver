@@ -17,13 +17,13 @@ mp.events.add('render', () => {
     if ((value_total != undefined || value_total != null) && cashVisible) {
         if (value_total < 0) {
             mp.game.graphics.drawText(`-$${numberWithCommas(value_total)}`, [0.93, 0.04], {
-                scale: [0.65, 0.65],
+                scale: [1, 1],
                 color: [224, 50, 50, 255],
                 font: 7
             });
         } else {
             mp.game.graphics.drawText(`$${numberWithCommas(value_total)}`, [0.93, 0.04], {
-                scale: [0.65, 0.65],
+                scale: [1, 1],
                 color: [114, 204, 114, 255],
                 font: 7
             });
@@ -32,13 +32,13 @@ mp.events.add('render', () => {
     if ((value_add != undefined || value_add != null) && cashVisible) {
         if (value_add < 0) {
             mp.game.graphics.drawText(`-$${numberWithCommas(Math.abs(value_add))}`, [0.93, 0.085], {
-                scale: [0.65, 0.65],
+                scale: [1, 1],
                 color: [224, 50, 50, 255],
                 font: 7
             });
         } else {
             mp.game.graphics.drawText(`+$${numberWithCommas(value_add)}`, [0.93, 0.085], {
-                scale: [0.65, 0.65],
+                scale: [1, 1],
                 color: [136, 233, 136, 255],
                 font: 7
             })

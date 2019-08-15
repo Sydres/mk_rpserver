@@ -2,7 +2,7 @@ exports = (menu) => {
 
     const Use3d = true;
     const UseAutoVolume = false;
-    const MaxRange = 7.0;
+    const MaxRange = 50.0;
 
     mp.keys.bind(78, true, function() { // N
         if (mp.gui.cursor.visible || mp.chatActive || mp.consoleActive){
