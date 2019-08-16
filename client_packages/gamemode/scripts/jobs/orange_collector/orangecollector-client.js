@@ -171,7 +171,6 @@ mp.events.add('startOrangeCollectorUnload', () => {
 mp.events.add('setOrangeJobStatus', (status) => {
 
   JobOrangeCollector.keyDownE = status;
-  mp.game.graphics.notify("Статус ~g~" + status);
 
  });
 mp.events.add('getOrangeJobStatus', (status) => {
@@ -218,7 +217,6 @@ mp.events.add('client.job.cursor.cancel', () => {
 });*/
 
 mp.keys.bind(0x45, false, function () { // E key
-  mp.game.graphics.notify("Статус ~g~" + JobOrangeCollector.keyDownE);
 	if (JobOrangeCollector.keyDownE !== undefined) {
 		if (mp.game.gameplay.getDistanceBetweenCoords(mp.players.local.position.x, mp.players.local.position.y, mp.players.local.position.z, 404.85, 6526.34, 27.68, true) < 4) {
       mp.gui.cursor.show(true, true);

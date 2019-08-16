@@ -446,6 +446,9 @@ module.exports = {
         if (player.job === 11) {
             let jobOpen = require("../modules/jobs/grape_collector/grape_collector.js");
             if (player.getVariable("attachedObject") === "prop_fruit_basket"){ jobOpen.stopBringingBasket(player);}
+        }else if (player.job === 12) {
+            let jobOpen = require("../modules/jobs/orange_collector/orange_collector.js");
+            if (player.getVariable("attachedObject") === "prop_fruit_basket"){ jobOpen.stopBringingBasket(player);}
         }else{
           player.utils.info(`Вы уронили груз!`);
           player.utils.putObject();

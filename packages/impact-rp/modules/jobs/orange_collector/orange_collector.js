@@ -1,4 +1,4 @@
-// Дополнительный элементы: player.jobubildercloth - статус ( одет / не одет ), player.money - деньги, player.emoney - деньги, которые накапливается при сдаче коробки, player.joborangecollectorfloor - отметка полученного значения.
+// Дополнительный элементы: player.jobubildercloth - статус ( одет / не одет ), player.money - деньги, player.emoney - деньги, которые накапливается при сдаче коробки, player.random_tree - отметка полученного значения.
 
 const JobOrangeCollector = {
     inside_basket: 0,
@@ -13,6 +13,7 @@ const JobOrangeCollector = {
     place_2: new mp.Vector3(1225.19, 1880.16, 78.89), // Цемент
     place_3: new mp.Vector3(-147.62, -952.64, 21.28), // Самосвал
     place_4: new mp.Vector3(-175.82, -1029.61, 27.27), // Цемент
+
     out_oranges_positions: [
 
 
@@ -26,8 +27,6 @@ const JobOrangeCollector = {
       { x: 338.65, y: 6516.35, z: 28.94, xs: 1.5, floor: 2 },
       { x: 377.91, y: 6516.85, z: 28.37, xs: 1.5, floor: 2 },
       { x: 329.59, y: 6530.25, z: 28.61, xs: 1.2, floor: 2 }
-
-
 
 
     ],
@@ -46,7 +45,7 @@ const JobOrangeCollector = {
     ]
 };
 
-mp.blips.new(285, new mp.Vector3(404.85, 6526.34, 27.68), { color: 47, name: 'Апельсиновая ферма', scale: 1, shortRange: true}); // Блип на карте
+mp.blips.new(285, new mp.Vector3(404.85, 6526.34, 27.68), { color: 47, name: 'Апельсиновая плантация', scale: 1, shortRange: true}); // Блип на карте
 //let jobcolshape = mp.colshapes.newSphere(404.85, 6526.34, 27.68); // Колшейп для устройства на работу
 //let jobclothcolshape = mp.colshapes.newSphere(400.39, 6524.21, 27.84); // Колшейп для раздевалки
 //let jobstorage_orange_itemcolshape = mp.colshapes.newSphere(402.46, 6504.57, 27.86); // Колшейп корзины
@@ -56,7 +55,7 @@ mp.blips.new(285, new mp.Vector3(404.85, 6526.34, 27.68), { color: 47, name: 'А
 mp.events.add("playerDeath", function playerDeathHandler(player, reason, killer) {
     if (player.job === 12) {
         if (player.jobubildercloth == true) {
-            player.utils.info("Вы уволились из виногдарника!");
+            player.utils.info("Вы уволились из Апельсиновой плантации!");
             if (player.emoney > 0) {
               player.utils.setMoney(player.money + player.emoney);
               player.utils.info(`Заработано: ${player.emoney}$`);
@@ -64,7 +63,7 @@ mp.events.add("playerDeath", function playerDeathHandler(player, reason, killer)
             delete player.emoney;
             player.utils.changeJob(0);
             delete player.jobubildercloth;
-            delete player.joborangecollectorfloor;
+            delete player.random_tree;
             delete player.body.denyUpdateView;
             player.call('createJobOrangeCollectorRoom', [false]);
             player.call("createJobOrangeCollectorMarkBlip", [ false, false, 404.85, 6526.34, 27.68 ]);
@@ -73,6 +72,7 @@ mp.events.add("playerDeath", function playerDeathHandler(player, reason, killer)
         leaveJob(player);
     }
 });
+
 mp.events.add("playerQuit", function playerQuitHandler(player, exitType, reason) {
   if (player.job === 12) {
     leaveVehicle(player);
@@ -80,21 +80,20 @@ mp.events.add("playerQuit", function playerQuitHandler(player, exitType, reason)
 });
 
 mp.events.add("playerStartEnterVehicle", function playerStartEnterVehicleHandler(player, vehicle, seat) {
-   if (player.joborangecollectorfloor > -1 && !player.orangecollector) stopBringingBasket(player);
+   if (player.random_tree > -1 && !player.orangecollector) stopBringingBasket(player);
 });
 
 function stopBringingBasket(player) {
 
-  //player.joborangecollectorfloor = getRandomNumber(0, 17);
-  //player.notify("Соберите виноград с ~g~ " + JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].floor + "-го ~w~яруса!");
-  //player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].x, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].y, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].z ]);
-  //player.joborangecollectorfloor = JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].floor;
+  //player.random_tree = getRandomNumber(0, 8);
+  //player.notify("Соберите виноград с ~g~ " + JobOrangeCollector.out_oranges_positions[player.random_tree].floor + "-го ~w~яруса!");
+  //player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.random_tree].x, JobOrangeCollector.out_oranges_positions[player.random_tree].y, JobOrangeCollector.out_oranges_positions[player.random_tree].z ]);
+  //player.random_tree = JobOrangeCollector.out_oranges_positions[player.random_tree].floor;
 
   if (JobOrangeCollector.inside_basket == 5) {
 
-    player.joborangecollectorfloor = getRandomNumber(0, 17);
-    player.notify("Соберите виноград с ~g~ " + JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].floor + "-го ~w~яруса!");
-    player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].x, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].y, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].z ]);
+    player.random_tree = getRandomNumber(0, 8);
+    player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.random_tree].x, JobOrangeCollector.out_oranges_positions[player.random_tree].y, JobOrangeCollector.out_oranges_positions[player.random_tree].z ]);
 
   }
 
@@ -106,14 +105,14 @@ if(JobOrangeCollector.inside_basket > 0 ){
 
   player.utils.takeObject("prop_fruit_basket");
 
-  player.utils.warning(`Вы рассыпали весь виноград! Корзина пуста.`);
+  player.utils.warning(`Вы рассыпали все апельсины! Корзина пуста.`);
 }else{
 
   player.utils.putObject();
 
   player.utils.takeObject("prop_fruit_basket");
 
-  player.utils.info(`Не прыгайте, иначе можете рассыпать виноград, когда заполните корзину!`);
+  player.utils.info(`Не прыгайте, иначе можете рассыпать апельсины, когда заполните корзину!`);
 }
 
 
@@ -124,9 +123,7 @@ module.exports.stopBringingBasket = stopBringingBasket;
 mp.events.add("playerEnterColshape", function onPlayerEnterColShape(player, shape) {
     try
     {
-      player.utils.error("Вы вошли в колшейп");
         if (shape == JobOrangeCollector.joinjob && !player.vehicle) {
-          player.utils.error("Всё ок!");
             if (player.job === 12){
 
               player.call("setOrangeJobStatus", [ true ]);
@@ -141,7 +138,7 @@ mp.events.add("playerEnterColshape", function onPlayerEnterColShape(player, shap
               }
         }
         if (shape == JobOrangeCollector.cloth_col && player.job === 12) {
-          if (player.joborangecollectorfloor != -1) {
+          if (player.random_tree != -1) {
               player.utils.error("Сначала отнесите полную корзину на склад!");
               return;
           }
@@ -158,7 +155,7 @@ mp.events.add("playerEnterColshape", function onPlayerEnterColShape(player, shap
 
         else if (JobOrangeCollector.out_oranges_colshapes.includes(shape) && player.job === 12 && player.jobubildercloth == true) {
             let num = JobOrangeCollector.out_oranges_colshapes.indexOf(shape);
-            if (num == player.joborangecollectorfloor){
+            if (num == player.random_tree){
               putBasketOrangeCollector(player);
               setTimeout(() => {
 
@@ -194,7 +191,7 @@ mp.events.add("job.orangecollector.agree", (player) => {
             player.utils.success("Вы устроились на апельсиновую ферму!");
             player.utils.warning("Теперь переоденьтесь для начала рабочего дня!");
             player.utils.changeJob(12);
-            player.joborangecollectorfloor = -1;
+            player.random_tree = -1;
             player.call('createJobOrangeCollectorRoom', [true]); //создание раздевалки
             player.setVariable("keydownevariable", true);
         }
@@ -204,14 +201,14 @@ mp.events.add("job.orangecollector.agree", (player) => {
     }
 });
 function leaveJob(player) {
-  player.utils.info("Вы уволились с виноградника!");
+  player.utils.info("Вы уволились с Апельсиновой плантации!");
   leaveVehicle(player);
   player.call('createJobOrangeCollectorRoom', [false]);
   player.setVariable("keydownevariable", false);
   player.utils.putObject();
   player.utils.changeJob(0);
   delete player.jobubildercloth;
-  delete player.joborangecollectorfloor;
+  delete player.random_tree;
   delete player.joborangecollectorveh;
 }
 
@@ -483,7 +480,7 @@ function leaveBasketOrangeCollector (player){
               drawDistance: 20,
           });
 
-      player.joborangecollectorfloor = -1;
+      player.random_tree = -1;
 
     }
 
@@ -498,7 +495,7 @@ function leaveBasketOrangeCollector (player){
 function takeBasketOrangeCollector(player){
     try
     {
-        if (player.joborangecollectorfloor == -1) {
+        if (player.random_tree == -1) {
 
           player.playAnimation('anim@mp_snowball', 'pickup_snowball', 1, 15);
 
@@ -507,9 +504,8 @@ function takeBasketOrangeCollector(player){
 
           //player.utils.putObject();
           player.utils.takeObject("prop_fruit_basket");
-          player.joborangecollectorfloor = getRandomNumber(0, 17);
-          player.notify("Соберите виноград с ~r~ " + JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].floor + "-го ~w~яруса!");
-          player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].x, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].y, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].z ]);
+          player.random_tree = getRandomNumber(0, 8);
+          player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.random_tree].x, JobOrangeCollector.out_oranges_positions[player.random_tree].y, JobOrangeCollector.out_oranges_positions[player.random_tree].z ]);
 
           }, 2000);
         }
@@ -526,7 +522,7 @@ function takeBasketOrangeCollector(player){
 function putBasketOrangeCollector(player){
     try
     {
-      JobOrangeCollector.money += Math.round(mp.economy["build_salary"].value * JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].xs);
+      JobOrangeCollector.money += Math.round(mp.economy["build_salary"].value * JobOrangeCollector.out_oranges_positions[player.random_tree].xs);
         //player.utils.putObject();
         if(JobOrangeCollector.inside_basket < 5){
 
@@ -543,12 +539,17 @@ function putBasketOrangeCollector(player){
           setTimeout(() => {
             player.stopAnimation()
             JobOrangeCollector.inside_basket += 1;
+            var before = JobOrangeCollector.inside_basket;
+            JobOrangeCollector.inside_basket += 1;
+            if(JobOrangeCollector.inside_basket > before){
+              JobOrangeCollector.inside_basket = before + 1;
+            }
             var percent = Math.round(100 - (100 - 20 * JobOrangeCollector.inside_basket));
             player.notify("Корзина заполнена на  ~g~ " + percent + "%");
 
 
             if(JobOrangeCollector.inside_basket == 5){
-              player.notify("Отнесите виноград на ~g~ СКЛАД ~w~!");
+              player.notify("Отнесите апельсины на ~g~ СКЛАД ~w~!");
 
               mp.labels.new("СКЛАД", new mp.Vector3(396.81, 6507.24, 27.80),
                   {
@@ -558,12 +559,11 @@ function putBasketOrangeCollector(player){
                   });
 
               player.call("createJobOrangeCollectorMarkBlip", [ true, false, 396.81, 6507.24, 27.80 ] );
-              player.joborangecollectorfloor = -1;
+              player.random_tree = -1;
             }
           else{
-            player.joborangecollectorfloor = getRandomNumber(0, 17);
-            player.notify("Соберите виноград с ~g~ " + JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].floor + "-го ~w~яруса!");
-            player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].x, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].y, JobOrangeCollector.out_oranges_positions[player.joborangecollectorfloor].z ]);
+            player.random_tree = getRandomNumber(0, 8);
+            player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.random_tree].x, JobOrangeCollector.out_oranges_positions[player.random_tree].y, JobOrangeCollector.out_oranges_positions[player.random_tree].z ]);
           }
         }, 6000);
       }
