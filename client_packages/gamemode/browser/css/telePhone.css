@@ -1,3 +1,4 @@
+
 @font-face {
 	font-family: NEWYORKSIXTY;
 	src: url(../fonts/Chalet/NEWYORKSIXTY.ttf);
@@ -69,8 +70,8 @@
 #uPhoneS.uPhoneS {
 	font-family: NEWYORKSIXTY;
 	background-image: url(../img/telephone/bgBlue.png);
-	width: 210px;
-	height: 416px;
+	width: 255px;
+	height: 450px;
 	position: absolute;
 	right: 0;
 	margin: 0;
@@ -90,16 +91,16 @@
 	margin-right: 98px;
 }
 
-@keyframes example { 
-	from { 
-			bottom: -27em; 
-			transform: rotate(-15deg); 
-	} 
-	
-	to { 
-			bottom: -1.5vh; 
-			transform: rotate(0deg); 
-	} 
+@keyframes example {
+	from {
+			bottom: -27em;
+			transform: rotate(-15deg);
+	}
+
+	to {
+			bottom: -1.5vh;
+			transform: rotate(0deg);
+	}
 }
 
 @keyframes example2 {
@@ -530,4 +531,8 @@ form {
 			position: relative;
 			bottom: 45px;
 	} */
+}
+.imenu{
+	width:74%;
+
 }
