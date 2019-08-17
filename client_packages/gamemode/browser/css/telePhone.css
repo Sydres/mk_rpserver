@@ -202,12 +202,14 @@
 .changeContact,
 .outgoingMessageList,
 .incomingMessageList {
-	color: #242931;
-	position: relative;
+	color: #ffffff;
+	position: absolute;
 	top: -17.5px;
 	overflow: overlay;
 	height: 127.5px;
 	width: 182px;
+	margin-top: 24%;
+
 }
 
 .headerContacts,
@@ -215,7 +217,7 @@
 	font-family: AA_BEBESAN;
 	font-size: 24px;
 	text-align: center;
-	color: #242931;
+	color: #ffffff;
 }
 
 .contact,
