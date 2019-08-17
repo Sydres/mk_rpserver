@@ -97,7 +97,7 @@ function stopBringingBasket(player) {
 
 if(player.inside_basket > 0 ){
   player.inside_basket = 0;
-  player.money = 0;
+  player.orange_money = 0;
 
   player.utils.putObject();
 
@@ -450,12 +450,12 @@ function leaveBasketOrangeCollector (player){
   try
   {
 
-    if( player.inside_basket == 5){
+    if( player.inside_basket >= 5){
 
       player.utils.putObject();
 
-      var skill = player.jobSkills[12 - 1] + 1;
-      let money = player.money;
+      let skill = player.jobSkills[12 - 1] + 1;
+      let money = player.orange_money;
       player.utils.setMoney(player.money + money);
 
       player.utils.setJobSkills(12, skill);
@@ -467,7 +467,7 @@ function leaveBasketOrangeCollector (player){
       player.utils.success(`Заработано: ${money}$`);
 
       player.inside_basket = 0;
-      player.money = 0;
+      player.orange_money = 0;
 
       player.call("createJobOrangeCollectorMarkBlip", [ true, false, 402.46, 6504.57, 27.86 ] );
 
@@ -494,7 +494,7 @@ function takeBasketOrangeCollector(player){
     try
     {
       player.inside_basket = 0;
-      player.money = 0;
+      player.orange_money = 0;
         if (player.random_tree == -1) {
 
           player.playAnimation('anim@mp_snowball', 'pickup_snowball', 1, 15);
@@ -524,7 +524,7 @@ function putBasketOrangeCollector(player){
     try
     {
       var before = player.inside_basket;
-      player.money += Math.round(mp.economy["build_salary"].value * JobOrangeCollector.out_oranges_positions[player.random_tree].xs);
+      player.orange_money += Math.round(mp.economy["build_salary"].value * JobOrangeCollector.out_oranges_positions[player.random_tree].xs);
         //player.utils.putObject();
         if(player.inside_basket < 5){
 
