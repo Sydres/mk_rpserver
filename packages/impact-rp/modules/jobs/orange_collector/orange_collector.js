@@ -458,8 +458,8 @@ function leaveBasketOrangeCollector (player){
       let skill = player.jobSkills[12 - 1] + 1;
       let money = player.orange_money;
       player.utils.setMoney(player.money + money);
-
-      player.utils.setJobSkills(12, skill);
+      player.utils.setJobSkills(12 + skill);
+      
       if (player.jobSkills[12 - 1] === 150){
         player.utils.warning("Вам открыта 2 ступень работы!");
       } else{
