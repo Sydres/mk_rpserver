@@ -1,13 +1,11 @@
 // Дополнительный элементы: player.jobubildercloth - статус ( одет / не одет ), player.money - деньги, player.emoney - деньги, которые накапливается при сдаче коробки, player.random_tree - отметка полученного значения.
 
 const JobOrangeCollector = {
-    inside_basket: 0,
     joinjob: mp.colshapes.newSphere(404.85, 6526.34, 27.68, 1.0),
     cloth_col: mp.colshapes.newSphere(400.39, 6524.21, 27.84, 1.0),
     basket_col: mp.colshapes.newSphere(402.46, 6504.57, 27.86, 1.0),
     storage_col: mp.colshapes.newSphere(396.81, 6507.24, 27.80, 1.0),
     storage: 1000,
-    money: 0,
     oranges: [10, 15],
     place_1: new mp.Vector3(382.85, 2909.74, 49.30), // Самосвал
     place_2: new mp.Vector3(1225.19, 1880.16, 78.89), // Цемент
@@ -90,16 +88,16 @@ function stopBringingBasket(player) {
   //player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.random_tree].x, JobOrangeCollector.out_oranges_positions[player.random_tree].y, JobOrangeCollector.out_oranges_positions[player.random_tree].z ]);
   //player.random_tree = JobOrangeCollector.out_oranges_positions[player.random_tree].floor;
 
-  if (JobOrangeCollector.inside_basket == 5) {
+  if (player.inside_basket >= 5) {
 
     player.random_tree = getRandomNumber(0, 8);
     player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.random_tree].x, JobOrangeCollector.out_oranges_positions[player.random_tree].y, JobOrangeCollector.out_oranges_positions[player.random_tree].z ]);
 
   }
 
-if(JobOrangeCollector.inside_basket > 0 ){
-  JobOrangeCollector.inside_basket = 0;
-  JobOrangeCollector.money = 0;
+if(player.inside_basket > 0 ){
+  player.inside_basket = 0;
+  player.money = 0;
 
   player.utils.putObject();
 
@@ -159,7 +157,7 @@ mp.events.add("playerEnterColshape", function onPlayerEnterColShape(player, shap
               putBasketOrangeCollector(player);
               setTimeout(() => {
 
-              }, 10000);
+              }, 8000);
             }
         }
     }
@@ -452,12 +450,12 @@ function leaveBasketOrangeCollector (player){
   try
   {
 
-    if( JobOrangeCollector.inside_basket == 5){
+    if( player.inside_basket == 5){
 
       player.utils.putObject();
 
       var skill = player.jobSkills[12 - 1] + 1;
-      let money = JobOrangeCollector.money;
+      let money = player.money;
       player.utils.setMoney(player.money + money);
 
       player.utils.setJobSkills(12, skill);
@@ -468,8 +466,8 @@ function leaveBasketOrangeCollector (player){
       }
       player.utils.success(`Заработано: ${money}$`);
 
-      JobOrangeCollector.inside_basket = 0;
-      JobOrangeCollector.money = 0;
+      player.inside_basket = 0;
+      player.money = 0;
 
       player.call("createJobOrangeCollectorMarkBlip", [ true, false, 402.46, 6504.57, 27.86 ] );
 
@@ -495,6 +493,8 @@ function leaveBasketOrangeCollector (player){
 function takeBasketOrangeCollector(player){
     try
     {
+      player.inside_basket = 0;
+      player.money = 0;
         if (player.random_tree == -1) {
 
           player.playAnimation('anim@mp_snowball', 'pickup_snowball', 1, 15);
@@ -505,6 +505,7 @@ function takeBasketOrangeCollector(player){
           //player.utils.putObject();
           player.utils.takeObject("prop_fruit_basket");
           player.random_tree = getRandomNumber(0, 8);
+          player.previous = player.random_tree;
           player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.random_tree].x, JobOrangeCollector.out_oranges_positions[player.random_tree].y, JobOrangeCollector.out_oranges_positions[player.random_tree].z ]);
 
           }, 2000);
@@ -522,9 +523,10 @@ function takeBasketOrangeCollector(player){
 function putBasketOrangeCollector(player){
     try
     {
-      JobOrangeCollector.money += Math.round(mp.economy["build_salary"].value * JobOrangeCollector.out_oranges_positions[player.random_tree].xs);
+      var before = player.inside_basket;
+      player.money += Math.round(mp.economy["build_salary"].value * JobOrangeCollector.out_oranges_positions[player.random_tree].xs);
         //player.utils.putObject();
-        if(JobOrangeCollector.inside_basket < 5){
+        if(player.inside_basket < 5){
 
           player.playAnimation('anim@mp_snowball', 'pickup_snowball', 1, 15);
 
@@ -537,18 +539,21 @@ function putBasketOrangeCollector(player){
           }, 4000);
 
           setTimeout(() => {
-            player.stopAnimation()
-            JobOrangeCollector.inside_basket += 1;
-            var before = JobOrangeCollector.inside_basket;
-            JobOrangeCollector.inside_basket += 1;
-            if(JobOrangeCollector.inside_basket > before){
-              JobOrangeCollector.inside_basket = before + 1;
+            player.stopAnimation();
+
+            player.inside_basket += 1;
+
+            if(player.inside_basket > before+1){
+              player.inside_basket = before + 1;
             }
-            var percent = Math.round(100 - (100 - 20 * JobOrangeCollector.inside_basket));
+            var percent = Math.round(100 - (100 - 20 * player.inside_basket));
+            if(percent>100){
+              percent = 100;
+            }
             player.notify("Корзина заполнена на  ~g~ " + percent + "%");
 
 
-            if(JobOrangeCollector.inside_basket == 5){
+            if(player.inside_basket >= 5){
               player.notify("Отнесите апельсины на ~g~ СКЛАД ~w~!");
 
               mp.labels.new("СКЛАД", new mp.Vector3(396.81, 6507.24, 27.80),
@@ -563,6 +568,10 @@ function putBasketOrangeCollector(player){
             }
           else{
             player.random_tree = getRandomNumber(0, 8);
+            while(player.random_tree == player.previous){
+              player.random_tree = getRandomNumber(0, 8);
+            }
+
             player.call("createJobOrangeCollectorMarkBlip", [ true, true, JobOrangeCollector.out_oranges_positions[player.random_tree].x, JobOrangeCollector.out_oranges_positions[player.random_tree].y, JobOrangeCollector.out_oranges_positions[player.random_tree].z ]);
           }
         }, 6000);
