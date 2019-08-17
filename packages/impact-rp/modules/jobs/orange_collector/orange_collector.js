@@ -455,7 +455,7 @@ function leaveBasketOrangeCollector (player){
 
       player.utils.putObject();
 
-      let skill = player.jobSkills[12 - 1] + 1;
+      var skill = player.jobSkills[12 - 1] + 1;
       let money = player.orange_money;
       player.utils.setMoney(player.money + money);
 
