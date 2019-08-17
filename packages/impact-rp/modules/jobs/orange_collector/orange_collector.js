@@ -424,19 +424,20 @@ function changeOrangeCollectorClothes(player){
             player.body.denyUpdateView = true;
             if (player.sex === 1) {
               // Одежда мужская
-              player.setClothes(3, 134, 0, 2);
-              player.setClothes(4, 90, 0, 2);
-              player.setClothes(6, 85, 0, 2);
-              player.setClothes(8, 30, 1, 2);
-              player.setClothes(11, 127, 0, 2);
-              player.setProp(13, 0, 2); //- Голова ( наушники )
+              player.setClothes(3, 126, 0, 2);
+              player.setClothes(4, 98, 0, 2);
+              player.setClothes(6, 62, 0, 2);
+              player.setClothes(8, 87, 1, 2);
+              player.setClothes(11, 25, 0, 2);
+              player.setProp(0, 94, 2); //- Голова ( наушники )
             } else {
               // Одежда женская
-              player.setClothes(3, 85, 0, 2);
-              player.setClothes(4, 45, 0, 2);
-              player.setClothes(6, 26, 0, 2);
-              player.setClothes(8, 30, 1, 2);
-              player.setClothes(11, 120, 0, 2);
+              player.setClothes(3, 110, 0, 2);
+              player.setClothes(4, 101, 0, 2);
+              player.setClothes(6, 68, 0, 2);
+              player.setClothes(8, 26, 1, 2);
+              player.setClothes(11, 67, 0, 2);
+              player.setProp(0, 93, 2);
               // player.setProp(0, 0, 0); - Голова ( наушники )
             }
         }
