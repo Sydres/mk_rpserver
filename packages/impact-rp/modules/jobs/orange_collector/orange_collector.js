@@ -456,10 +456,7 @@ function leaveBasketOrangeCollector (player){
       player.utils.putObject();
 
       var check_skill = player.jobSkills[12 - 1] ;
-
-      if(check_skill == undefined || check_skill == 0){
-        player.utils.setJobSkills(12 - 1, 0);
-      }
+        player.utils.setJobSkills(12, 0);
 
 
       var orange_skill = player.jobSkills[12 - 1] + 1;
@@ -469,7 +466,7 @@ function leaveBasketOrangeCollector (player){
 
       player.utils.setMoney(player.money + money);
 
-      player.utils.setJobSkills(12 - 1, orange_skill);
+      player.utils.setJobSkills(12, orange_skill);
 
       player.utils.success(player.jobSkills[12 - 1]);
 
