@@ -455,15 +455,28 @@ function leaveBasketOrangeCollector (player){
 
       player.utils.putObject();
 
-      let skill = player.jobSkills[12 - 1] + 1;
-      let money = player.orange_money;
+      var check_skill = player.jobSkills[12 - 1] ;
+
+      if(check_skill == undefined || check_skill == 0){
+        player.utils.setJobSkills(12 - 1, 0);
+      }
+
+
+      var orange_skill = player.jobSkills[12 - 1] + 1;
+      var money = player.orange_money;
+
+      player.utils.success(orange_skill);
+
       player.utils.setMoney(player.money + money);
 
-      player.utils.setJobSkills(12, skill);
+      player.utils.setJobSkills(12 - 1, orange_skill);
+
+      player.utils.success(player.jobSkills[12 - 1]);
+
       if (player.jobSkills[12 - 1] === 150){
         player.utils.warning("Вам открыта 2 ступень работы!");
       } else{
-        player.notify("Опыт работы: ~g~" + skill + " ~w~из ~g~" + 50);
+        player.notify("Опыт работы: ~g~" + orange_skill + " ~w~из ~g~" + 50);
       }
       player.utils.success(`Заработано: ${money}$`);
 

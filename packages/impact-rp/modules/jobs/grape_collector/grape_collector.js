@@ -488,13 +488,6 @@ function leaveBasketGrapeCollector (player){
 
       player.call("createJobGrapeCollectorMarkBlip", [ true, false, -1877, 2094.7, 140.3 ] );
 
-      mp.labels.new("Взять корзину", new mp.Vector3(-1861, 2088.33, 142.84),
-          {
-              los: true,
-              font: 2,
-              drawDistance: 20,
-          });
-
       player.random_bush = -1;
 
     }
