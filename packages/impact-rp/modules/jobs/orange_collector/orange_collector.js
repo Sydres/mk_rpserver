@@ -432,11 +432,11 @@ function changeOrangeCollectorClothes(player){
               player.setProp(0, 94, 2); //- Голова ( наушники )
             } else {
               // Одежда женская
-              player.setClothes(3, 110, 0, 2);
+              player.setClothes(3, 136, 0, 2);
               player.setClothes(4, 101, 0, 2);
               player.setClothes(6, 68, 0, 2);
-              player.setClothes(8, 26, 1, 2);
-              player.setClothes(11, 67, 0, 2);
+              player.setClothes(8, 0, 1, 2);
+              player.setClothes(11, 76, 0, 2);
               player.setProp(0, 93, 2);
               // player.setProp(0, 0, 0); - Голова ( наушники )
             }
